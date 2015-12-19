@@ -13,6 +13,8 @@ namespace jge {
 
 		public:
 
+		Entity();
+
 		virtual bool setTexture(std::string tString); // Sets texture
 
 		virtual void draw(sf::RenderWindow &window); // Draws to screen
@@ -20,6 +22,8 @@ namespace jge {
 		virtual sf::FloatRect getBoundingBox(); // Returns bounding box for entity
 
 		virtual void setPosition(sf::Vector2f pos); // Sets position
+
+		virtual sf::Vector2f getPosition(); // gets position
 
 		protected:
 

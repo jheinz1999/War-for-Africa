@@ -26,6 +26,12 @@ mali->setTexture("Graphics/Countries/Mali/Mali0.png");
 Game::entityManager.addEntity("algeria", algeria);
 Game::entityManager.addEntity("mali", mali);
 
+sf::Sprite bg;
+sf::Texture t;
+
+t.loadFromFile("Graphics/map.png");
+bg.setTexture(t);
+
 	while (Game::window.isOpen()) {
 
 		while (Game::window.pollEvent(event)) {
@@ -35,6 +41,7 @@ Game::entityManager.addEntity("mali", mali);
 		}
 
 	Game::window.clear();
+	Game::window.draw(bg);
 	Game::stateManager.getCurrentState()->update();
 	Game::stateManager.getCurrentState()->draw(Game::window);
 	Game::window.display();
