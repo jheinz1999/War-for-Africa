@@ -1,2 +1,2 @@
 # War-for-Africa
-C++ risk spinoff made with SFML.
+2D SFML Risk variant
