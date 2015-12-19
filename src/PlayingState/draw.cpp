@@ -4,9 +4,10 @@
 
 #include "../PlayingState.hpp"
 #include "../../src/Game.hpp"
+#include "../Map.hpp"
 
 void PlayingState::draw(sf::RenderWindow &window) {
 
-Game::entityManager.drawAllEntities(window);
+Game::gameMap.draw(window);
 
 } 

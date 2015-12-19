@@ -25,6 +25,8 @@ namespace jge {
 
 		virtual sf::Vector2f getPosition(); // gets position
 
+		virtual void scale(float s1, float s2); // scales sprite
+
 		protected:
 
 		sf::Sprite sprite; // Sprite

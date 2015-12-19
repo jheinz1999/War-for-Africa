@@ -3,17 +3,26 @@
 #ifndef __GAME_HPP__
 #define __GAME_HPP__
 
-#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "../jge/jge.hpp"
+#include "Map.hpp"
 
 class Game {
 
 	public:
 
-	static jge::EntityManager entityManager;
-	static sf::RenderWindow window;
-	static jge::StateManager stateManager;
+	Game();
+
+	sf::RenderWindow window;
+	jge::StateManager stateManager;
+	jge::EntityManager entityManager;
+	sf::VideoMode getCurrentScreenSize();
+	static bool isMouseDown;
+	static bool isRightDown;
+	static Map gameMap;
+
+	void run();
 
 	private:
 

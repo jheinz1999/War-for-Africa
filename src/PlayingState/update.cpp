@@ -7,32 +7,23 @@
 
 void PlayingState::update() {
 
-	if (Game::entityManager.getEntity("algeria")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+	if (Game::gameMap.getMapPiece("algeria")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
 
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		if (Game::isMouseDown) {
 
-		Game::entityManager.getEntity("algeria")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
-
-		}
-
-	}
-
-	else if (Game::entityManager.getEntity("mali")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
-
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-
-		Game::entityManager.getEntity("mali")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
+		Game::gameMap.getMapPiece("algeria")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
 
 		}
 
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+	else if (Game::gameMap.getMapPiece("mali")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
 
-	std::cout << "A: " << Game::entityManager.getEntity("algeria")->getPosition().x << ", " <<
-    Game::entityManager.getEntity("algeria")->getPosition().y << "\nM: " <<
-    Game::entityManager.getEntity("algeria")->getPosition().x << ", " <<
-    Game::entityManager.getEntity("algeria")->getPosition().y << "\n";
+		if (Game::isMouseDown) {
+
+		Game::gameMap.getMapPiece("mali")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
+
+		}
 
 	}
 
