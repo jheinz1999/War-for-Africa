@@ -14,10 +14,10 @@ class Game {
 
 	Game();
 
-	sf::RenderWindow window;
-	jge::StateManager stateManager;
-	jge::EntityManager entityManager;
-	sf::VideoMode getCurrentScreenSize();
+	static sf::RenderWindow window;
+	static jge::StateManager stateManager;
+	static jge::EntityManager entityManager;
+	static sf::VideoMode getCurrentScreenSize();
 	static bool isMouseDown;
 	static bool isRightDown;
 	static Map gameMap;
@@ -25,6 +25,8 @@ class Game {
 	void run();
 
 	private:
+
+	void scaleImages();
 
 };
 
