@@ -37,6 +37,7 @@ namespace jge {
 			delete p.second;
 		
 			}
+
 		};
 
 	};

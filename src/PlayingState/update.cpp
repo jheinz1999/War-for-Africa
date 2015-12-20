@@ -37,4 +37,10 @@ void PlayingState::update() {
 
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 0));
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 255));	
+
 } 

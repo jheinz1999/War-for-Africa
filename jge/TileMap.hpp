@@ -46,6 +46,8 @@ namespace jge {
 	
 		void setCollisionTile(char id, int mode); // Sets a tile to collidable
 
+		//void updatePos(sf::Vector2f pos); // Updates tilemap position
+
 		private:
 	
 		int width, height; // Dimensions of tilemap
