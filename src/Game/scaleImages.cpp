@@ -14,6 +14,7 @@ entityManager.getEntity("map")->setPosition(sf::Vector2f(getCurrentScreenSize().
 	entityManager.getEntity("map")->scale(width, width);
 	gameMap.getMapPiece("algeria")->scale(width, width);
 	gameMap.getMapPiece("mali")->scale(width, width);
+	gameMap.getMapPiece("mauritania")->scale(width, width);
 
 	}
 
@@ -22,6 +23,7 @@ entityManager.getEntity("map")->setPosition(sf::Vector2f(getCurrentScreenSize().
 	entityManager.getEntity("map")->scale(height, height);
 	gameMap.getMapPiece("algeria")->scale(height, height);
 	gameMap.getMapPiece("mali")->scale(height, height);
+	gameMap.getMapPiece("mauritania")->scale(height, height);
 
 	}
 
