@@ -8,7 +8,7 @@ namespace jge {
 
 	void Entity::draw(sf::RenderWindow &window) {
 
-	window.draw(sprite);
+	window.draw(*sprite);
 
 	}
 

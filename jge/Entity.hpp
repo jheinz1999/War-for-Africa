@@ -14,6 +14,7 @@ namespace jge {
 		public:
 
 		Entity();
+		~Entity();
 
 		virtual bool setTexture(std::string tString); // Sets texture
 
@@ -27,9 +28,11 @@ namespace jge {
 
 		virtual void scale(float s1, float s2); // scales sprite
 
+		virtual sf::Sprite* getSprite();
+
 		protected:
 
-		sf::Sprite sprite; // Sprite
+		sf::Sprite* sprite; // Sprite
 		sf::Texture texture; // Texture
 
 	};

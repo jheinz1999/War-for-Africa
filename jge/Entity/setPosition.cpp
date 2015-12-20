@@ -8,7 +8,7 @@ namespace jge {
 
 	void Entity::setPosition(sf::Vector2f pos) {
 
-	sprite.setPosition(pos);
+	sprite->setPosition(pos);
 
 	}
 

@@ -8,7 +8,7 @@ namespace jge {
 
 	sf::Vector2f Entity::getPosition() {
 
-	return sprite.getPosition();
+	return sprite->getPosition();
 
 	}
 

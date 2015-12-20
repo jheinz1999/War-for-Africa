@@ -8,7 +8,7 @@ namespace jge {
 
 	void Entity::scale(float s1, float s2) {
 
-	sprite.setScale(s1, s2);
+	sprite->setScale(s1, s2);
 
 	}
 

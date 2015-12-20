@@ -6,7 +6,13 @@ namespace jge {
 
 	Entity::Entity() {
 
-	
+	sprite = new sf::Sprite();
+
+	}
+
+	Entity::~Entity() {
+
+	delete sprite;
 
 	}
 

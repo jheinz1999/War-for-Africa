@@ -17,9 +17,9 @@ namespace jge {
 
 		}
 
-	sprite.setTexture(texture);
+	sprite->setTexture(texture);
 
-	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
 
 	return 1;
 

@@ -8,7 +8,7 @@ namespace jge {
 
 	sf::FloatRect Entity::getBoundingBox() {
 
-	return sprite.getGlobalBounds();
+	return sprite->getGlobalBounds();
 
 	}
 
