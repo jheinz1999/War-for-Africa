@@ -10,7 +10,7 @@ It was developed by Jonathan Heinz.
 
 To install on linux, clone this repository and run the usual build commands:
 
-make
+make\n
 sudo make install
 
 This repository has yet to be ported to Windows/Mac OS.
