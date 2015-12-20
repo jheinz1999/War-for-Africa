@@ -10,16 +10,20 @@ It was developed by Jonathan Heinz.
 
 To install on linux, clone this repository and run the usual build commands:
 
-make
+`make`
 
-sudo make install
+`sudo make install`
 
 This repository has yet to be ported to Windows/Mac OS.
 
 #Credits
 
-Jonathan Heinz - Software Developer, Game Designer, Project Lead
+- Jonathan Heinz - Software Developer, Game Designer, Project Lead
 
-Salvador Mendoza - Game Designer
+- Salvador Mendoza - Game Designer
 
-Brendan Choi - Game Designer
+- Brendan Choi - Game Designer
+
+#Contact
+
+- Jonathan Heinz - jonathan.heinz@aol.com
