@@ -7,12 +7,7 @@
 #include "../Map.hpp"
 #include "../PlayingState.hpp"
 
-bool Game::isMouseDown;
-bool Game::isRightDown;
 Map Game::gameMap;
-sf::RenderWindow Game::window;
-jge::StateManager Game::stateManager;
-jge::EntityManager Game::entityManager;
 
 Game::Game() {
 

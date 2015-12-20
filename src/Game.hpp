@@ -6,23 +6,16 @@
 #include <SFML/Graphics.hpp>
 
 #include "../jge/jge.hpp"
+#include "../jge/Engine.hpp"
 #include "Map.hpp"
 
-class Game {
+class Game : public jge::Engine {
 
 	public:
 
 	Game();
 
-	static sf::RenderWindow window;
-	static jge::StateManager stateManager;
-	static jge::EntityManager entityManager;
-	static sf::VideoMode getCurrentScreenSize();
-	static bool isMouseDown;
-	static bool isRightDown;
 	static Map gameMap;
-
-	void run();
 
 	private:
 
