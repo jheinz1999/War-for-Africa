@@ -27,4 +27,14 @@ void PlayingState::update() {
 
 	}
 
+	else if (Game::gameMap.getMapPiece("mauritania")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+
+		if (Game::isMouseDown) {
+
+		Game::gameMap.getMapPiece("mauritania")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
+
+		}
+
+	}
+
 } 
