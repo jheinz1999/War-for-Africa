@@ -8,7 +8,13 @@
 
 void PlayingState::update() {
 
-	if (Game::gameMap.getMapPiece("algeria")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+Game::gameMap.getMapPiece("mauritania")->getSprite()->setColor(sf::Color(255, 255, 255, 255));
+Game::gameMap.getMapPiece("mali")->getSprite()->setColor(sf::Color(255, 255, 255, 255));	
+Game::gameMap.getMapPiece("algeria")->getSprite()->setColor(sf::Color(255, 255, 255, 255));
+
+	if (Game::gameMap.getMapPiece("algeria")->containsMouse()) {
+
+	Game::gameMap.getMapPiece("algeria")->getSprite()->setColor(sf::Color(0, 255, 0, 255));
 
 		if (Game::isMouseDown) {
 
@@ -18,7 +24,9 @@ void PlayingState::update() {
 
 	}
 
-	else if (Game::gameMap.getMapPiece("mali")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+	else if (Game::gameMap.getMapPiece("mali")->containsMouse()) {
+
+	Game::gameMap.getMapPiece("mali")->getSprite()->setColor(sf::Color(0, 255, 0, 255));
 
 		if (Game::isMouseDown) {
 
@@ -28,7 +36,9 @@ void PlayingState::update() {
 
 	}
 
-	else if (Game::gameMap.getMapPiece("mauritania")->getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+	else if (Game::gameMap.getMapPiece("mauritania")->containsMouse()) {
+
+	Game::gameMap.getMapPiece("mauritania")->getSprite()->setColor(sf::Color(0, 255, 0, 255));
 
 		if (Game::isMouseDown) {
 

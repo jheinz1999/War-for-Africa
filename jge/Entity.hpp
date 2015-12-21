@@ -28,12 +28,15 @@ namespace jge {
 
 		virtual void scale(float s1, float s2); // scales sprite
 
+		virtual bool containsMouse(); // Returns true if mouse is above sprite
+
 		virtual sf::Sprite* getSprite();
 
 		private:
 
 		sf::Sprite* sprite; // Sprite
 		sf::Texture texture; // Texture
+		sf::Image image; // Image
 
 	};
 
