@@ -21,4 +21,18 @@ namespace jge {
 
 	}
 
+	AnimatedEntity* EntityManager::getAnimatedEntity(std::string id) {
+
+	std::map<std::string, AnimatedEntity*>::iterator aLocator = animatedEntities.find(id);
+
+		if (aLocator != animatedEntities.end()) {
+
+		return aLocator->second;
+
+		}
+
+	return NULL;
+
+	}
+
 }

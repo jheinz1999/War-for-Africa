@@ -4,6 +4,7 @@
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
+#include "../../jge/AnimatedEntity.hpp"
 
 void PlayingState::update() {
 
@@ -41,6 +42,6 @@ void PlayingState::update() {
 	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 0));
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 255));	
+	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 255));
 
 } 

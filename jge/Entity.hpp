@@ -30,7 +30,7 @@ namespace jge {
 
 		virtual sf::Sprite* getSprite();
 
-		protected:
+		private:
 
 		sf::Sprite* sprite; // Sprite
 		sf::Texture texture; // Texture

@@ -6,7 +6,8 @@ namespace jge {
 
 	EntityManager::~EntityManager() {
 
-		std::for_each(entities.begin(), entities.end(), GameObjectDeallocator());
+		std::for_each(entities.begin(), entities.end(), EntityDeallocator());
+		std::for_each(animatedEntities.begin(), animatedEntities.end(), AnimatedEntityDeallocator());
 
 	}
 

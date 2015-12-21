@@ -19,6 +19,15 @@ namespace jge {
 
 		}
 
+	std::map<std::string, AnimatedEntity*>::iterator aLocator = animatedEntities.begin();
+
+		while (aLocator != animatedEntities.end()) {
+
+		aLocator->second->draw(window);
+		aLocator++;
+
+		}
+
 	}
 
 }

@@ -8,6 +8,7 @@
 #include "Inventory.hpp"
 #include "IState.hpp"
 #include "StateManager.hpp"
+#include "AnimatedEntity.hpp"
 #include "Engine.hpp"
 
 #endif
