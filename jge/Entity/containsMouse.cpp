@@ -3,22 +3,17 @@
 #include <iostream>
 
 #include "../Entity.hpp"
+#include "../Engine.hpp"
 
 namespace jge {
 
 	bool Entity::containsMouse() {
 
-		if (getBoundingBox().contains((sf::Vector2f)sf::Mouse::getPosition())) {
+	sf::Vector2f mousePos = Engine::window.mapPixelToCoords(sf::Mouse::getPosition(Engine::window));
 
-		sf::Vector2f imgCoords;
+		if (getBoundingBox().contains(mousePos)) {
 
-		imgCoords.x = getPosition().x - getBoundingBox().width / 2;
-		imgCoords.y = getPosition().y - getBoundingBox().height / 2;
-
-		sf::Vector2f mousePos = (sf::Vector2f)sf::Mouse::getPosition();
-		
-		mousePos.x -= imgCoords.x;
-		mousePos.y -= imgCoords.y;
+		mousePos = sprite->getInverseTransform().transformPoint(mousePos);
 
 		sf::Color pColor = image.getPixel(mousePos.x, mousePos.y);
 

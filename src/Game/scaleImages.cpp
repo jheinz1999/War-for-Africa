@@ -1,30 +1,32 @@
 // scaleImages.cpp - Scales game resources based on screen size
 
+#include <iostream>
+
 #include "../Game.hpp"
 
 void Game::scaleImages() {
 
-float height = getCurrentScreenSize().height / entityManager.getEntity("map")->getBoundingBox().height;
-float width = getCurrentScreenSize().width / entityManager.getEntity("map")->getBoundingBox().width;
-entityManager.getEntity("map")->getSprite()->setOrigin(entityManager.getEntity("map")->getBoundingBox().width / 2, entityManager.getEntity("map")->getBoundingBox().height / 2);
-entityManager.getEntity("map")->setPosition(sf::Vector2f(getCurrentScreenSize().width / 2, getCurrentScreenSize().height / 2));
+sf::VideoMode screen = getCurrentWindowSize();
 
-	if (width < height) {
+std::cout << screen.width << " " << screen.height << "\n";
 
-	entityManager.getEntity("map")->scale(width, width);
-	gameMap.getMapPiece("algeria")->scale(width, width);
-	gameMap.getMapPiece("mali")->scale(width, width);
-	gameMap.getMapPiece("mauritania")->scale(width, width);
+float height = screen.height / entityManager.getEntity("map")->getBoundingBox().height;
+float width = screen.width / entityManager.getEntity("map")->getBoundingBox().width / 1.3;
 
-	}
+entityManager.getEntity("map")->scale(width, height);
+gameMap.getMapPiece("algeria")->scale(width, height);
+gameMap.getMapPiece("mali")->scale(width, height);
+gameMap.getMapPiece("mauritania")->scale(width, height);
 
-	if (height < width) {
+entityManager.getEntity("map")->setPosition(sf::Vector2f(0, 0));
+entityManager.getEntity("map")->getSprite()->setOrigin(0, 0);
 
-	entityManager.getEntity("map")->scale(height, height);
-	gameMap.getMapPiece("algeria")->scale(height, height);
-	gameMap.getMapPiece("mali")->scale(height, height);
-	gameMap.getMapPiece("mauritania")->scale(height, height);
+	if (screen.width == 1024 && screen.height == 768) {
 
-	}
+	gameMap.getMapPiece("mauritania")->getSprite()->setPosition(sf::Vector2f(77, 174));
+	gameMap.getMapPiece("algeria")->getSprite()->setPosition(sf::Vector2f(213, 98));
+	gameMap.getMapPiece("mali")->getSprite()->setPosition(sf::Vector2f(140, 204));
+
+}
 
 }

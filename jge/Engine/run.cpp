@@ -7,13 +7,19 @@
 
 namespace jge {
 
-	void Engine::run(std::string name, sf::VideoMode res) {
+	void Engine::run(std::string name, sf::VideoMode res, bool fullscreen) {
 
 	sf::Event event;
 
-	window.create(res, name, sf::Style::Fullscreen);
+		if (fullscreen)
+		window.create(res, name, sf::Style::Fullscreen);
+
+		else
+		window.create(res, name);
 
 	window.setVerticalSyncEnabled(1);
+
+	stateManager.getCurrentState()->loadResources();
 
 		while (window.isOpen()) {
 

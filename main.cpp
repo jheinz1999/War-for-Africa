@@ -6,6 +6,6 @@
 int main() {
 
 Game game;
-game.run("War for Africa", Game::getCurrentScreenSize());
+game.run("War for Africa", Game::getCurrentScreenSize(), 1);
 
 }

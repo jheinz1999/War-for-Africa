@@ -18,7 +18,7 @@ Game::gameMap.getMapPiece("algeria")->getSprite()->setColor(sf::Color(255, 255, 
 
 		if (Game::isMouseDown) {
 
-		Game::gameMap.getMapPiece("algeria")->setPosition((sf::Vector2f)sf::Mouse::getPosition());
+		Game::gameMap.getMapPiece("algeria")->setPosition((sf::Vector2f)sf::Mouse::getPosition(Game::window));
 
 		}
 
@@ -53,5 +53,15 @@ Game::gameMap.getMapPiece("algeria")->getSprite()->setColor(sf::Color(255, 255, 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	Game::entityManager.getEntity("map")->getSprite()->setColor(sf::Color(255, 255, 255, 255));
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
+
+	std::cout << Game::gameMap.getMapPiece("mauritania")->getPosition().x << " " << Game::gameMap.getMapPiece("mauritania")->getPosition().y << "\n";
+
+	std::cout << Game::gameMap.getMapPiece("algeria")->getPosition().x << " " << Game::gameMap.getMapPiece("algeria")->getPosition().y << "\n";
+
+	std::cout << Game::gameMap.getMapPiece("mali")->getPosition().x << " " << Game::gameMap.getMapPiece("mali")->getPosition().y << "\n";
+
+	}
 
 } 

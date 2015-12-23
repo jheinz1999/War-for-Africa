@@ -7,7 +7,11 @@
 
 void MenuState::update() {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+
 	Game::stateManager.setState("playing");
+	Game::stateManager.getCurrentState()->loadResources();
+
+	}
 
 } 

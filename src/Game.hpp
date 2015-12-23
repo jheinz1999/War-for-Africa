@@ -17,9 +17,9 @@ class Game : public jge::Engine {
 
 	static Map gameMap;
 
-	private:
+	static void scaleImages();
 
-	void scaleImages();
+	private:
 
 };
 

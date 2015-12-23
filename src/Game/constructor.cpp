@@ -1,6 +1,7 @@
 // constructor.cpp
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include "../Game.hpp"
 #include "../../jge/jge.hpp"
@@ -24,8 +25,6 @@ jge::Entity* map = new jge::Entity();
 map->setTexture("Graphics/map.png");
 
 entityManager.addEntity("map", map);
-
-scaleImages();
 
 }
 

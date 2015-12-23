@@ -20,12 +20,13 @@ namespace jge {
 		static jge::StateManager stateManager;
 		static jge::EntityManager entityManager;
 		static sf::VideoMode getCurrentScreenSize();
+		static sf::VideoMode getCurrentWindowSize();
 		static bool isMouseDown;
 		static bool isRightDown;
 
-		void run(std::string name, sf::VideoMode res);
+		void run(std::string name, sf::VideoMode res, bool fullscreen);
 
-		private:
+		protected:
 
 	};
 
