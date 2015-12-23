@@ -9,15 +9,15 @@
 #include "../jge/Engine.hpp"
 #include "Map.hpp"
 
-class Game : public jge::Engine {
+class Game : public jge::Engine { // Main game class, is used on top of generic Engine
 
 	public:
 
 	Game();
 
-	static Map gameMap;
+	static Map gameMap; // Data structure containing all map-related entities
 
-	static void scaleImages();
+	static void scaleImages(); // Static function that scales all entities
 
 	private:
 

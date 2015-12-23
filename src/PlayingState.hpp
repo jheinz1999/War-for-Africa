@@ -5,7 +5,7 @@
 
 #include "../jge/jge.hpp"
 
-class PlayingState : public jge::IState {
+class PlayingState : public jge::IState { // Game state. Must inherit from IState interface for clean/easy gamestate switching.
 
 	public:
 
@@ -13,6 +13,7 @@ class PlayingState : public jge::IState {
 	void draw(sf::RenderWindow &window);
 	void loadResources();
 	void processEvents(sf::RenderWindow &window, sf::Event event);
+	void handleInput(sf::Keyboard::Key key);
 
 	private:
 

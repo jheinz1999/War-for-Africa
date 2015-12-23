@@ -13,14 +13,14 @@ namespace jge {
 
 	Inventory();
 
-	int invSearch(int num);
-	bool invAdd(int num, int q);
-	void invShow(sf::RenderWindow &window);
-	void invClear(int x);
+	int invSearch(int num); // takes ID as input, returns inventory slot where ID is stored
+	bool invAdd(int num, int q); // Adds an item to inventory. Picks first available slot. Takes ID and quantity as input.
+	void invShow(sf::RenderWindow &window); // Draws inventory
+	void invClear(int x); // Clears inventory slot. Takes slot as parameter
 
-	int id[20];
-	int num[20];
-	bool filled[20];
+	int id[20]; // Array containing IDs
+	int num[20]; // Array containing quantities
+	bool filled[20]; // Array that states whether or not a slot is filled
 
 	private:
 

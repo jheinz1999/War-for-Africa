@@ -5,7 +5,7 @@
 
 #include "../jge/jge.hpp"
 
-class MenuState : public jge::IState {
+class MenuState : public jge::IState { // Menu state. Must inherit from IState interface for clean/easy gamestate switching.
 
 	public:
 
@@ -13,6 +13,7 @@ class MenuState : public jge::IState {
 	void draw(sf::RenderWindow &window);
 	void loadResources();
 	void processEvents(sf::RenderWindow &window, sf::Event event);
+	void handleInput(sf::Keyboard::Key key);
 
 	private:
 

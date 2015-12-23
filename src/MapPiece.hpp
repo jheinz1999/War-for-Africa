@@ -5,7 +5,7 @@
 
 #include "../jge/Entity.hpp"
 
-class MapPiece : public jge::Entity {
+class MapPiece : public jge::Entity { // Class for map pieces, inherits from Entity
 
 	public:
 

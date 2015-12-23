@@ -12,12 +12,12 @@ class Map {
 
 	Map();
 
-	void draw(sf::RenderWindow &window);
-	jge::Entity* getMapPiece(std::string id);
+	void draw(sf::RenderWindow &window); // Draws all map-related entities
+	jge::Entity* getMapPiece(std::string id); // Returns a reference to an entity
 
 	private:
 
-	jge::EntityManager entityManager;	
+	jge::EntityManager entityManager; // Manages all map-related entitites
 
 };
 

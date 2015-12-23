@@ -32,8 +32,7 @@ void PlayingState::processEvents(sf::RenderWindow &window, sf::Event event) {
 
 	if (event.type == sf::Event::KeyPressed) {
 
-		if (event.key.code == sf::Keyboard::Escape)
-		window.close();
+	handleInput(event.key.code);
 
 	}
 	

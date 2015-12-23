@@ -1,10 +1,11 @@
-// Game.hpp - Contains resources for game
+// Engine.hpp - Base class containing important functions
 
 #ifndef __ENGINE_HPP__
 #define __ENGINE_HPP__
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <map>
 
 #include "jge.hpp"
 
@@ -16,15 +17,18 @@ namespace jge {
 
 		Engine();
 
-		static sf::RenderWindow window;
-		static jge::StateManager stateManager;
-		static jge::EntityManager entityManager;
-		static sf::VideoMode getCurrentScreenSize();
-		static sf::VideoMode getCurrentWindowSize();
-		static bool isMouseDown;
-		static bool isRightDown;
+		static sf::RenderWindow window; // Window for game
+		static jge::StateManager stateManager; // manages game states
+		static jge::EntityManager entityManager; // manages entities
+		static sf::VideoMode getCurrentScreenSize(); // Returns desktop resolution
+		static sf::VideoMode getCurrentWindowSize(); // returns window resolution
+		static bool isMouseDown; // is true when left mouse button is clicked
+		static bool isRightDown; // is true when right mouse button is clicked
+		static std::map<std::string, sf::Keyboard::Key> keyCode; // contains key codes for various actions
 
-		void run(std::string name, sf::VideoMode res, bool fullscreen);
+		void loadSettings(std::string path); // loads settings from config files
+
+		void run(std::string name, sf::VideoMode res, bool fullscreen); // game loop
 
 		protected:
 

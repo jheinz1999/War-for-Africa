@@ -11,6 +11,7 @@ namespace jge {
 	sf::RenderWindow Engine::window;
 	jge::StateManager Engine::stateManager;
 	jge::EntityManager Engine::entityManager;
+	std::map<std::string, sf::Keyboard::Key> Engine::keyCode;
 
 	Engine::Engine() {
 

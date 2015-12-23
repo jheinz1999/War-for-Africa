@@ -26,5 +26,7 @@ map->setTexture("Graphics/map.png");
 
 entityManager.addEntity("map", map);
 
+keyCode["EXIT"] = sf::Keyboard::Escape;
+
 }
 

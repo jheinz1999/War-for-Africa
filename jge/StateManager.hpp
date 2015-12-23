@@ -1,4 +1,4 @@
-// StateManager.hpp - State Manager
+// StateManager.hpp - Manages game states
 
 #ifndef __STATEMANAGER_HPP__
 #define __STATEMANAGER_HPP__
@@ -15,14 +15,14 @@ namespace jge {
 
 		~StateManager();
 
-		IState* getCurrentState();
-		void addState(std::string name, IState* gameState);
-		void setState(std::string name);
+		IState* getCurrentState(); // Retrieves current game state
+		void addState(std::string name, IState* gameState); // Adds game state to container.
+		void setState(std::string name); // Sets current state to value pointed to by container.
 
 		private:
 
-		IState* state;
-		std::map<std::string, IState*> stateList;
+		IState* state; // Pointer to current state
+		std::map<std::string, IState*> stateList; // Container of valid game states
 
 		struct GameObjectDeallocator { // Deallocates pointers
 

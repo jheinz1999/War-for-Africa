@@ -6,6 +6,9 @@
 int main() {
 
 Game game;
+
+game.loadSettings("Config/keyboard.cfg");
+
 game.run("War for Africa", Game::getCurrentScreenSize(), 1);
 
 }
