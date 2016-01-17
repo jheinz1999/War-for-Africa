@@ -27,6 +27,14 @@ entityManager.getEntity("map")->getSprite()->setOrigin(0, 0);
 	gameMap.getMapPiece("algeria")->getSprite()->setPosition(sf::Vector2f(213, 98));
 	gameMap.getMapPiece("mali")->getSprite()->setPosition(sf::Vector2f(140, 204));
 
-}
+	}
+
+	if (screen.width == 1024 && screen.height == 744) {
+
+	gameMap.getMapPiece("mauritania")->getSprite()->setPosition(sf::Vector2f(78, 166));
+	gameMap.getMapPiece("algeria")->getSprite()->setPosition(sf::Vector2f(214, 94));
+	gameMap.getMapPiece("mali")->getSprite()->setPosition(sf::Vector2f(140, 195));
+
+	}
 
 }
