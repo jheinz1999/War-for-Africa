@@ -6,7 +6,7 @@ namespace jge {
 
 	int EntityManager::getEntityCount() {
 
-	return entities.size() + animatedEntities.size();
+	return entities.size();
 
 	}
 

@@ -1,11 +1,11 @@
 // getMapPiece.cpp - Retrieves map piece
 
 #include "../Map.hpp"
-#include "../../jge/Entity.hpp"
+#include "../MapPiece.hpp"
 #include "../Game.hpp"
 
-jge::Entity* Map::getMapPiece(std::string id) {
+MapPiece* Map::getMapPiece(std::string id) {
 
-return entityManager.getEntity(id);
+return entityManager.getDerivedEntity<MapPiece*>(id);
 
 } 

@@ -12,10 +12,4 @@ namespace jge {
 
 	}
 
-	void EntityManager::addAnimatedEntity(std::string id, AnimatedEntity *entity) {
-
-	animatedEntities.insert(std::pair<std::string, AnimatedEntity*>(id, entity));
-
-	}
-
 }

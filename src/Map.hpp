@@ -4,7 +4,7 @@
 #define __MAP_HPP__
 
 #include "../jge/EntityManager.hpp"
-#include "../jge/Entity.hpp"
+#include "MapPiece.hpp"
 
 class Map {
 
@@ -13,7 +13,13 @@ class Map {
 	Map();
 
 	void draw(sf::RenderWindow &window); // Draws all map-related entities
-	jge::Entity* getMapPiece(std::string id); // Returns a reference to an entity
+	MapPiece* getMapPiece(std::string id); // Returns a reference to an entity
+
+	sf::Color team1;
+	sf::Color team2;
+	sf::Color team3;
+	sf::Color team4;
+	sf::Color unclaimed;
 
 	private:
 
