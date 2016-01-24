@@ -21,10 +21,13 @@ stateManager.addState("menu", mState);
 stateManager.setState("menu");
 
 jge::Entity* map = new jge::Entity();
+jge::Entity* bg = new jge::Entity();
 
 map->setTexture("Graphics/map.png");
+bg->setTexture("Graphics/bg.png");
 
 entityManager.addEntity("map", map);
+entityManager.addEntity("bg", bg);
 
 keyCode["EXIT"] = sf::Keyboard::Escape;
 

@@ -17,6 +17,8 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 
 	private:
 
+	void setSpriteColors();
+
 };
 
 #endif
