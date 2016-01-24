@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "../AnimatedEntity.hpp"
-#include "../../src/Game.hpp"
 
 namespace jge {
 
