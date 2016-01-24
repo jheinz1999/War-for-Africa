@@ -12,9 +12,9 @@ To install on linux, clone this repository and run the usual build commands:
 
 `make`
 
-`sudo make install`
+Because this repo is in pre-alpha, there is no `make install` command (yet). You may run the game by simply typing `./main`.
 
-This repository has yet to be ported to Windows/Mac OS.
+This code has been tested to compile on Windows under MinGW, using g++ 4.8.1. Compilation is the same as in linux. Type `make` to compile, and `main` to run.
 
 #Credits
 
