@@ -8,5 +8,8 @@
 void PlayingState::loadResources() {
 
 Game::scaleImages();
+stage = 1;
+currentPlayer = Controller::Player1;
+armiesToPlace = 1;
 
 } 

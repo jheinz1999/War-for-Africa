@@ -4,6 +4,7 @@
 #define __PLAYINGSTATE_HPP__
 
 #include "../jge/jge.hpp"
+#include "Controller.hpp"
 
 class PlayingState : public jge::IState { // Game state. Must inherit from IState interface for clean/easy gamestate switching.
 
@@ -18,6 +19,12 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	private:
 
 	void setSpriteColors();
+	std::string checkMouseHover();
+	void placeArmies();
+	int stage;
+	Controller currentPlayer;
+	int armiesToPlace;
+	Controller getNextPlayer();
 
 };
 

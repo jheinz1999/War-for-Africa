@@ -7,7 +7,7 @@ else
 endif
 
 all: jge.obj src.obj
-	g++ main.cpp src.obj jge.obj -lsfml-system -lsfml-window -lsfml-graphics -o main -std=c++11
+	g++ main.cpp src.obj jge.obj -lsfml-system -lsfml-window -lsfml-graphics -ltgui -o main -std=c++11
 
 src.obj: Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj
 	ld -r -o src.obj Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj
@@ -18,7 +18,7 @@ Game.obj: src/Game/*.cpp
 	$(RM) *.o
 
 Map.obj: src/Map/*.cpp
-	g++ -c src/Map/*.cpp
+	g++ -c src/Map/*.cpp -std=c++11
 	ld -r -o Map.obj *.o
 	$(RM) *.o
 
@@ -33,7 +33,7 @@ MenuState.obj: src/MenuState/*.cpp
 	$(RM) *.o
 
 PlayingState.obj: src/PlayingState/*.cpp
-	g++ -c src/PlayingState/*.cpp
+	g++ -c src/PlayingState/*.cpp -std=c++11
 	ld -r -o PlayingState.obj *.o
 	$(RM) *.o
 

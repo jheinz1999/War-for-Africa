@@ -10,10 +10,9 @@ sf::VideoMode screen = getCurrentWindowSize();
 
 std::cout << screen.width << " " << screen.height << "\n";
 
-float height = screen.height / entityManager.getEntity("map")->getBoundingBox().height;
-float width = screen.width / entityManager.getEntity("map")->getBoundingBox().width / 1.3;
+float height = screen.height / entityManager.getEntity("bg")->getBoundingBox().height;
+float width = screen.width / entityManager.getEntity("bg")->getBoundingBox().width / 1.3;
 
-entityManager.getEntity("map")->scale(width, height);
 entityManager.getEntity("bg")->scale(width, height);
 gameMap.getMapPiece("algeria")->scale(width, height);
 gameMap.getMapPiece("mali")->scale(width, height);
@@ -52,8 +51,6 @@ gameMap.getMapPiece("botswana")->scale(width, height);
 gameMap.getMapPiece("south africa")->scale(width, height);
 gameMap.getMapPiece("zimbabwe")->scale(width, height);
 
-entityManager.getEntity("map")->setPosition(sf::Vector2f(0, 0));
-entityManager.getEntity("map")->getSprite()->setOrigin(0, 0);
 entityManager.getEntity("bg")->setPosition(sf::Vector2f(0, 0));
 entityManager.getEntity("bg")->getSprite()->setOrigin(0, 0);
 

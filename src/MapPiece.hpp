@@ -18,11 +18,25 @@ class MapPiece : public jge::Entity { // Class for map pieces, inherits from Ent
 
 	sf::Color getColor();
 
+	int getTroopCount();
+
+	void changeTroopCount(int amount);
+
+	bool isCoastal;
+	
+	void setRank(int rank);
+
+	int getRank();
+
 	private:
 
 	Controller controller;
 
 	sf::Color color;
+
+	int troopCount;
+
+	int rank;
 
 };
 

@@ -21,9 +21,9 @@ namespace jge {
 
 		framesSinceUpdate = 0;
 
-		currentStep++;
+		std::cout << currentStep << std::endl;
 
-		std::cout << currentStep * sizeX << " " << currentAnimation * sizeY << " " << " " << sizeX << " " << sizeY << "\n";
+		currentStep++;
 
 		}
 

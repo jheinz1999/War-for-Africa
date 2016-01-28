@@ -8,5 +8,6 @@ MapPiece::MapPiece() {
 
 controller = Controller::Unclaimed;
 color = Game::gameMap.unclaimed;
+troopCount = 0;
 
 }

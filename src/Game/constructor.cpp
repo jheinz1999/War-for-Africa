@@ -20,14 +20,20 @@ stateManager.addState("playing", pState);
 stateManager.addState("menu", mState);
 stateManager.setState("menu");
 
-jge::Entity* map = new jge::Entity();
 jge::Entity* bg = new jge::Entity();
+jge::AnimatedEntity* rotatingEarth = new jge::AnimatedEntity();
 
-map->setTexture("Graphics/map.png");
 bg->setTexture("Graphics/bg.png");
+rotatingEarth->setTexture("Graphics/puff.png");
 
-entityManager.addEntity("map", map);
+rotatingEarth->getSprite()->setOrigin(0, 0);
+rotatingEarth->getSprite()->setPosition(50, 150);
+rotatingEarth->setDimensions(80, 80);
+rotatingEarth->setUpdateFrequency(0, 10);
+rotatingEarth->getSprite()->scale(10, 7.5);
+
 entityManager.addEntity("bg", bg);
+entityManager.addEntity("rotating earth", rotatingEarth);
 
 keyCode["EXIT"] = sf::Keyboard::Escape;
 
