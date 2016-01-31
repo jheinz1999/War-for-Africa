@@ -23,7 +23,7 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	void placeArmies();
 	int stage;
 	Controller currentPlayer;
-	int armiesToPlace;
+	int armiesToPlace, armiesPlaced;
 	Controller getNextPlayer();
 
 };

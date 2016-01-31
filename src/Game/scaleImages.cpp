@@ -14,6 +14,8 @@ float height = screen.height / entityManager.getEntity("bg")->getBoundingBox().h
 float width = screen.width / entityManager.getEntity("bg")->getBoundingBox().width / 1.3;
 
 entityManager.getEntity("bg")->scale(width, height);
+entityManager.getEntity("notbar")->scale((screen.width - entityManager.getEntity("bg")->getBoundingBox().width) / entityManager.getEntity("notbar")->getBoundingBox().width, height);
+
 gameMap.getMapPiece("algeria")->scale(width, height);
 gameMap.getMapPiece("mali")->scale(width, height);
 gameMap.getMapPiece("mauritania")->scale(width, height);
@@ -53,6 +55,9 @@ gameMap.getMapPiece("zimbabwe")->scale(width, height);
 
 entityManager.getEntity("bg")->setPosition(sf::Vector2f(0, 0));
 entityManager.getEntity("bg")->getSprite()->setOrigin(0, 0);
+
+entityManager.getEntity("notbar")->getSprite()->setOrigin(0, 0);
+entityManager.getEntity("notbar")->setPosition(sf::Vector2f(entityManager.getEntity("bg")->getBoundingBox().width, 0));
 
 	if (screen.width == 1024 && screen.height == 768) {
 

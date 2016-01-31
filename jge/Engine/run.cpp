@@ -17,21 +17,28 @@ namespace jge {
 		else
 		window.create(res, name);
 
-	window.setVerticalSyncEnabled(1);
+	window.setFramerateLimit(60);
 
 	stateManager.getCurrentState()->loadResources();
 
 		while (window.isOpen()) {
 
+		isMouseClicked = 0;
+		isRightClicked = 0;
+		isMouseDown = 0;
+		isRightDown = 0;
+		
 			while (window.pollEvent(event)) {
 
 				stateManager.getCurrentState()->processEvents(window, event);
+				gui.handleEvent(event);
 
 			}
 
 		window.clear();
 		stateManager.getCurrentState()->update();
 		stateManager.getCurrentState()->draw(window);
+		gui.draw();
 		window.display();
 
 		}

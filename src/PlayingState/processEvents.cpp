@@ -1,6 +1,7 @@
 // processEvents.cpp
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
@@ -23,10 +24,10 @@ void PlayingState::processEvents(sf::RenderWindow &window, sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased) {
 
 		if (event.mouseButton.button == sf::Mouse::Left)
-		Game::isMouseDown = 0;
+		Game::isMouseClicked = 1;
 
 		if (event.mouseButton.button == sf::Mouse::Right)
-		Game::isRightDown = 0;
+		Game::isRightClicked = 1;
 
 	}
 
