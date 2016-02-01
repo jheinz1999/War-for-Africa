@@ -7,7 +7,7 @@ else
 endif
 
 all: jge.obj src.obj
-	g++ main.cpp src.obj jge.obj -lsfml-system -lsfml-window -lsfml-graphics -ltgui -o main -std=c++11
+	g++ main.cpp src.obj jge.obj -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -ltgui -o main -std=c++11
 
 src.obj: Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj
 	ld -r -o src.obj Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj

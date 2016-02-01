@@ -3,6 +3,9 @@
 #ifndef __PLAYINGSTATE_HPP__
 #define __PLAYINGSTATE_HPP__
 
+#include <SFML/Audio.hpp>
+#include <memory>
+
 #include "../jge/jge.hpp"
 #include "Controller.hpp"
 
@@ -25,6 +28,10 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	Controller currentPlayer;
 	int armiesToPlace, armiesPlaced;
 	Controller getNextPlayer();
+	sf::Music music;
+	sf::SoundBuffer buffer, b2;
+	sf::Sound sound, sound2;
+	void close();
 
 };
 

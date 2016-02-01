@@ -20,6 +20,8 @@ void PlayingState::placeArmies() {
 
 		if (Game::isMouseClicked && hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == currentPlayer || Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
 
+		sound2.play();
+
 		Game::gameMap.getMapPiece(hover)->setController(currentPlayer);
 		Game::gameMap.getMapPiece(hover)->changeTroopCount(1);
 
