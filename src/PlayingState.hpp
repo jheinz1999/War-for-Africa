@@ -7,6 +7,7 @@
 #include <memory>
 
 #include "../jge/jge.hpp"
+#include "Player.hpp"
 #include "Controller.hpp"
 
 class PlayingState : public jge::IState { // Game state. Must inherit from IState interface for clean/easy gamestate switching.
@@ -21,17 +22,22 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 
 	private:
 
+	int pTurn;
 	void setSpriteColors();
 	std::string checkMouseHover();
 	void placeArmies();
-	int stage;
-	Controller currentPlayer;
-	int armiesToPlace, armiesPlaced;
 	Controller getNextPlayer();
+	void close();
+
 	sf::Music music;
 	sf::SoundBuffer buffer, b2;
 	sf::Sound sound, sound2;
-	void close();
+	int stage;
+	Controller currentPlayer;
+	int armiesToPlace, armiesPlaced;
+	Player player[4];
+
+	sf::Text turn, troops, states, money;
 
 };
 

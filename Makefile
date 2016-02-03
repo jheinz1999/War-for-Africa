@@ -9,12 +9,17 @@ endif
 all: jge.obj src.obj
 	g++ main.cpp src.obj jge.obj -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -ltgui -o main -std=c++11
 
-src.obj: Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj
-	ld -r -o src.obj Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj
+src.obj: Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj Player.obj
+	ld -r -o src.obj Game.obj Map.obj MapPiece.obj MenuState.obj PlayingState.obj Controller.obj Player.obj
 
 Game.obj: src/Game/*.cpp
 	g++ -c src/Game/*.cpp -std=c++11
 	ld -r -o Game.obj *.o
+	$(RM) *.o
+
+Player.obj: src/Player/*.cpp
+	g++ -c src/Player/*.cpp -std=c++11
+	ld -r -o Player.obj *.o
 	$(RM) *.o
 
 Map.obj: src/Map/*.cpp

@@ -1,13 +1,15 @@
 // placeArmies.cpp
 
 #include <TGUI/TGUI.hpp>
+#include <ctime>
+#include <sstream>
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
 
 void PlayingState::placeArmies() {
 
-	if (armiesToPlace != 0 && ((stage == 0 && armiesPlaced != 3) || stage > 0)) {
+	if (armiesToPlace != 0 && ((stage == 0 && armiesPlaced != 1) || stage > 0)) {
 
 	std::string hover = checkMouseHover();
 
@@ -22,22 +24,58 @@ void PlayingState::placeArmies() {
 
 		sound2.play();
 
-		Game::gameMap.getMapPiece(hover)->setController(currentPlayer);
-		Game::gameMap.getMapPiece(hover)->changeTroopCount(1);
+			if (stage > 0) {	
 
-		armiesToPlace--;
+			Game::gameMap.getMapPiece(hover)->setController(currentPlayer);
+			Game::gameMap.getMapPiece(hover)->changeTroopCount(1);
+
+			armiesToPlace--;
+
+			}
+
+			else {
+
+			std::srand(std::time(NULL));
+
+			int armiesPlaced = rand() % 3 + 1;
+
+			std::ostringstream str;
+			str << "The king has sent " << armiesPlaced << " troops to " + hover + ".";
+
+			Game::gameMap.getMapPiece(hover)->setController(currentPlayer);
+			Game::gameMap.getMapPiece(hover)->changeTroopCount(armiesPlaced);
+
+			player[pTurn].changeTroopCount(armiesPlaced);
+			player[pTurn].addState(Game::gameMap.getMapPiece(hover)->getRank());
+
+			armiesToPlace--;
+
+			Game::gui.get("messageBox")->show();
+			Game::gui.get<tgui::MessageBox>("messageBox")->setText((sf::String)str.str());
+
+			}
 
 		}
 
 	}
 
-	else if (armiesPlaced != 3) {
+	else if (armiesPlaced != 1 && armiesToPlace == 0) {
 
-		if (currentPlayer == Controller::Player4)
+		if (currentPlayer == Controller::Player4) {
+
+		stage++;
 		armiesPlaced++;
 
-	armiesToPlace = 1;
-	currentPlayer = getNextPlayer();
+		currentPlayer = getNextPlayer();
+
+		}
+
+		if (!Game::gui.get("messageBox")->isVisible()) {
+
+		currentPlayer = getNextPlayer();
+		armiesToPlace = 1;		
+
+		}
 
 	}
 

@@ -10,5 +10,9 @@ void PlayingState::draw(sf::RenderWindow &window) {
 
 Game::entityManager.drawAllEntities(window);
 Game::gameMap.draw(window);
+window.draw(turn);
+window.draw(troops);
+window.draw(states);
+window.draw(money);
 
 } 
