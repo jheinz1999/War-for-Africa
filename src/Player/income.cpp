@@ -4,7 +4,7 @@
 
 int Player::calculateIncome() {
 
-int amount = stateClasses[0] * 5 + stateClasses[1] * 15 + stateClasses[2] * 30;
+int amount = stateClasses[1] * 5 + stateClasses[2] * 10 + stateClasses[3] * 17.5 + stateClasses[4] * 25 + stateClasses[5] * 50;
 
 addMoney(amount);
 

@@ -34,6 +34,7 @@ currentPlayer = Controller::Player1;
 armiesToPlace = 1;
 armiesPlaced = 0;
 pTurn = 0;
+aNotificationShown = 0;
 
 tgui::MessageBox::Ptr messageBox = Game::theme->load("MessageBox");
 	

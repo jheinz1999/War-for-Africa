@@ -11,10 +11,12 @@ pTurn++;
 
 std::ostringstream str;
 
+aNotificationShown = 0;
+
 	if (currentPlayer == Controller::Player1) {
 
 	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 2, place your armies.");
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 2, it is your turn.");
 
 	turn.setString("Player: 2");
 	str << "Troops: " << player[1].getTroopCount();
@@ -43,7 +45,7 @@ std::ostringstream str;
 	states.setString(str.str());
 
 	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 3, place your armies.");
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 3, it is your turn.");
 
 	return Controller::Player3;
 
@@ -62,7 +64,7 @@ std::ostringstream str;
 	states.setString(str.str());
 
 	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 4, place your armies.");
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 4, it is your turn.");
 
 	return Controller::Player4;
 
@@ -80,8 +82,9 @@ std::ostringstream str;
 	str << "States: " << player[0].getStatesOwned();
 	states.setString(str.str());
 
+
 	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 1, place your armies.");
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 1, it is your turn.");
 
 	return Controller::Player1;
 

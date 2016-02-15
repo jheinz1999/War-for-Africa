@@ -6,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "../jge/jge.hpp"
-#include "../jge/Engine.hpp"
 #include "Map.hpp"
 
 class Game : public jge::Engine { // Main game class, is used on top of generic Engine

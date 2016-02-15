@@ -8,7 +8,6 @@
 #include <map>
 
 #include "Entity.hpp"
-#include "AnimatedEntity.hpp"
 
 namespace jge {
 

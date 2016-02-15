@@ -3,11 +3,21 @@
 #include <TGUI/TGUI.hpp>
 #include <ctime>
 #include <sstream>
+#include <iostream>
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
 
 void PlayingState::placeArmies() {
+
+	if (!aNotificationShown) {
+
+	Game::gui.get("messageBox")->show();
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Place your armies.");
+
+	aNotificationShown = 1;
+
+	}
 
 	if (armiesToPlace != 0 && ((stage == 0 && armiesPlaced != 1) || stage > 0)) {
 
