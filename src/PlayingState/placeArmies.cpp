@@ -30,6 +30,13 @@ void PlayingState::placeArmies() {
 
 		}
 
+		if (stage == 2 && hover != "none") {
+
+			if (!(Game::gameMap.getMapPiece(hover)->getController() == currentPlayer) || !(Game::gameMap.getMapPiece(hover)->isCoastal))
+			Game::gameMap.getMapPiece(hover)->getSprite()->setColor(Game::gameMap.getMapPiece(hover)->getColor());
+
+		}
+
 		if (Game::isMouseClicked && hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == currentPlayer || Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
 
 		sound2.play();

@@ -15,6 +15,14 @@ Game::gui.get("messageBox")->hide();
 
 }
 
+void PlayingState::pressed() {
+
+stage++;
+
+Game::gui.get("doneButton")->hide();
+
+}
+
 void PlayingState::loadResources() {
 
 buffer.loadFromFile("Sounds/Interface/click.wav");
@@ -38,13 +46,23 @@ aNotificationShown = 0;
 
 tgui::MessageBox::Ptr messageBox = Game::theme->load("MessageBox");
 	
-messageBox->setText("Player 1, place your armies.");
+messageBox->setText("Player 1, it is your turn.");
 messageBox->addButton("OK");
 messageBox->connect("ButtonPressed", &PlayingState::close, this);
 messageBox->connect("Closed", &PlayingState::close, this);
 messageBox->setPosition(283, 330);
 
 Game::gui.add(messageBox, "messageBox");
+
+tgui::Button::Ptr button = Game::theme->load("Button");
+
+button->setText("Done");
+button->connect("Pressed", &PlayingState::pressed, this);
+button->setPosition(779, 712);
+button->setSize(sf::Vector2f(200, 50));
+button->hide();
+
+Game::gui.add(button, "doneButton");
 
 turn.setFont(*Game::gui.getFont());
 turn.setColor(sf::Color(190, 190, 190));

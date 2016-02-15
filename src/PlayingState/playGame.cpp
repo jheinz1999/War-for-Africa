@@ -1,5 +1,7 @@
 // playGame.cpp - Game logic
 
+#include <iostream>
+
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
 
@@ -7,7 +9,7 @@ void PlayingState::playGame() {
 
 int current = currentPlayer;
 
-double dough = player[current].calculateIncome();
+double dough;
 
 std::ostringstream str;
 
@@ -17,8 +19,13 @@ std::ostringstream str;
 
 			if (!Game::gui.get("messageBox")->isVisible()) {
 
-			std::cout << "inside\n";
+			dough = player[current].calculateIncome();
 
+			str << "Money: " << player[current].getMoney();
+			money.setString(str.str());
+							
+			str.str("");
+			
 			str << "You have received $" << dough << " in tax revenue.";
 		
 			Game::gui.get("messageBox")->show();
@@ -41,9 +48,13 @@ std::ostringstream str;
 
 		case 3: // Move soldiers
 
+		moveSoldiers();
+
 		break;
 
 		case 4: // Combat
+
+		std::cout << "COMBAT\n";
 
 		break;
 

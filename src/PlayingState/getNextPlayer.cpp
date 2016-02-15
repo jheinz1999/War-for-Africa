@@ -12,6 +12,7 @@ pTurn++;
 std::ostringstream str;
 
 aNotificationShown = 0;
+mNotificationShown = 0;
 
 	if (currentPlayer == Controller::Player1) {
 
