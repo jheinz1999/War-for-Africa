@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <map>
+#include <map> 
 
 #include "Entity.hpp"
 
@@ -24,7 +24,9 @@ namespace jge {
 		int getEntityCount(); // Returns the number of entities in the game
 
 		Entity* getEntity(std::string id); // Retrieves an entity from the manager
-		
+
+		std::map<std::string, Entity*>* getAllEntities();
+
 		template<class Type>
 		Type getDerivedEntity(std::string id);
 

@@ -32,6 +32,8 @@ namespace jge {
 
 		virtual sf::Sprite* getSprite();
 
+		virtual bool intersects(Entity* entity);
+
 		private:
 
 		sf::Sprite* sprite; // Sprite

@@ -17,9 +17,41 @@ Game::gui.get("messageBox")->hide();
 
 void PlayingState::pressed() {
 
+sound.play();
+
 stage++;
 
 Game::gui.get("doneButton")->hide();
+
+}
+
+void PlayingState::valueChanged() {
+
+std::ostringstream o;
+
+o << Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::Slider>("slider")->getValue();
+
+Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::TextBox>("text")->setText(o.str());
+
+}
+
+void PlayingState::moveButtonPressed() {
+
+sound.play();
+
+Game::gui.get("moveWindow")->hide();
+
+}
+
+void PlayingState::moveWindowClosed() {
+
+sound.play();
+
+Game::gui.get("moveWindow")->hide();
+
+moveSourceSelected = 0;
+
+moving = 0;
 
 }
 
@@ -63,6 +95,36 @@ button->setSize(sf::Vector2f(200, 50));
 button->hide();
 
 Game::gui.add(button, "doneButton");
+
+tgui::ChildWindow::Ptr moveWindow = Game::theme->load("ChildWindow");
+
+tgui::Slider::Ptr slider = Game::theme->load("Slider");
+slider->setMinimum(1);
+slider->setPosition(sf::Vector2f(10, 10));
+slider->setSize(sf::Vector2f(380, 30));
+slider->connect("ValueChanged", &PlayingState::valueChanged, this);
+
+tgui::TextBox::Ptr textBox = Game::theme->load("TextBox");
+textBox->setReadOnly(1);
+textBox->setText("1");
+textBox->setPosition(sf::Vector2f(150, 45));
+textBox->setSize(sf::Vector2f(50, 50));
+
+tgui::Button::Ptr acceptButton = Game::theme->load("Button");
+
+acceptButton->setText("OK");
+acceptButton->setPosition(sf::Vector2f(100, 170));
+acceptButton->setSize(sf::Vector2f(200, 50));
+acceptButton->connect("Pressed", &PlayingState::moveButtonPressed, this);
+
+moveWindow->add(slider, "slider");
+moveWindow->add(textBox, "text");
+moveWindow->add(acceptButton, "acceptButton");
+moveWindow->setPosition(sf::Vector2f(283, 330));
+moveWindow->connect("Closed", &PlayingState::moveWindowClosed, this);
+moveWindow->hide();
+
+Game::gui.add(moveWindow, "moveWindow");
 
 turn.setFont(*Game::gui.getFont());
 turn.setColor(sf::Color(190, 190, 190));

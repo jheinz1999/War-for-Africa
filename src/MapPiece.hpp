@@ -3,6 +3,8 @@
 #ifndef __MAPPIECE_HPP__
 #define __MAPPIECE_HPP__
 
+#include <vector>
+
 #include "../jge/Entity.hpp"
 #include "Controller.hpp"
 
@@ -26,9 +28,19 @@ class MapPiece : public jge::Entity { // Class for map pieces, inherits from Ent
 	
 	void setRank(int rank);
 
+	void addAdjacentState(std::string id);
+
 	int getRank();
 
+	bool isMovable();
+
+	void setMovable(bool a);
+
+	std::vector<std::string>* getAdjacentStates();
+
 	private:
+
+	std::vector<std::string> adjacentStates;
 
 	Controller controller;
 
@@ -37,6 +49,8 @@ class MapPiece : public jge::Entity { // Class for map pieces, inherits from Ent
 	int troopCount;
 
 	int rank;
+
+	bool movable;
 
 };
 

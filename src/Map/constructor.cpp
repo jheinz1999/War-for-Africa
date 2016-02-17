@@ -160,6 +160,94 @@ zimbabwe->isCoastal = 0;
 botswana->isCoastal = 0;
 southAfrica->isCoastal = 1;
 
+algeria->addAdjacentState("morocco");
+algeria->addAdjacentState("western sahara");
+algeria->addAdjacentState("mauritania");
+algeria->addAdjacentState("mali");
+algeria->addAdjacentState("niger");
+algeria->addAdjacentState("libya");
+algeria->addAdjacentState("tunisia");
+
+mali->addAdjacentState("algeria");
+mali->addAdjacentState("niger");
+mali->addAdjacentState("burkina faso");
+mali->addAdjacentState("cote divoire");
+mali->addAdjacentState("guinea");
+mali->addAdjacentState("senegal");
+mali->addAdjacentState("mauritania");
+
+mauritania->addAdjacentState("western sahara");
+mauritania->addAdjacentState("algeria");
+mauritania->addAdjacentState("mali");
+mauritania->addAdjacentState("senegal");
+
+niger->addAdjacentState("mali");
+niger->addAdjacentState("algeria");
+niger->addAdjacentState("libya");
+niger->addAdjacentState("chad");
+niger->addAdjacentState("nigeria");
+niger->addAdjacentState("burkina faso");
+
+libya->addAdjacentState("tunisia");
+libya->addAdjacentState("algeria");
+libya->addAdjacentState("niger");
+libya->addAdjacentState("chad");
+libya->addAdjacentState("sudan");
+libya->addAdjacentState("egypt");
+
+burkinaFaso->addAdjacentState("mali");
+burkinaFaso->addAdjacentState("niger");
+burkinaFaso->addAdjacentState("ghana");
+burkinaFaso->addAdjacentState("cote divoire");
+
+chad->addAdjacentState("libya");
+chad->addAdjacentState("sudan");
+chad->addAdjacentState("central republic");
+chad->addAdjacentState("cameroon");
+chad->addAdjacentState("niger");
+
+coteDivoire->addAdjacentState("ghana");
+coteDivoire->addAdjacentState("burkina faso");
+coteDivoire->addAdjacentState("mali");
+coteDivoire->addAdjacentState("guinea");
+
+egypt->addAdjacentState("libya");
+egypt->addAdjacentState("sudan");
+
+guinea->addAdjacentState("senegal");
+guinea->addAdjacentState("mali");
+guinea->addAdjacentState("cote divoire");
+
+senegal->addAdjacentState("mauritania");
+senegal->addAdjacentState("mali");
+senegal->addAdjacentState("guinea");
+
+sudan->addAdjacentState("");
+
+nigeria->addAdjacentState("");
+morocco->addAdjacentState("");
+ethiopia->addAdjacentState("");
+westernSahara->addAdjacentState("");
+tunisia->addAdjacentState("");
+somalia->addAdjacentState("");
+ghana->addAdjacentState("");
+liberia->addAdjacentState("");
+sierraLeone->addAdjacentState("");
+cameroon->addAdjacentState("");
+uganda->addAdjacentState("");
+centralRepublic->addAdjacentState("");
+congo->addAdjacentState("");
+gabon->addAdjacentState("");
+kenya->addAdjacentState("");
+democraticCongo->addAdjacentState("");
+angola->addAdjacentState("");
+namibia->addAdjacentState("");
+zambia->addAdjacentState("");
+mozambique->addAdjacentState("");
+zimbabwe->addAdjacentState("");
+botswana->addAdjacentState("");
+southAfrica->addAdjacentState("");
+
 entityManager.addEntity("algeria", algeria);
 entityManager.addEntity("mali", mali);
 entityManager.addEntity("mauritania", mauritania);

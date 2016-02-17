@@ -14,6 +14,9 @@ class Map {
 
 	void draw(sf::RenderWindow &window); // Draws all map-related entities
 	MapPiece* getMapPiece(std::string id); // Returns a reference to an entity
+	std::map<std::string, jge::Entity*>* getAllEntities();
+
+	void makeAllMovable();
 
 	sf::Color team1;
 	sf::Color team2;
