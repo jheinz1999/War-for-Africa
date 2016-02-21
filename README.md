@@ -3,6 +3,7 @@
 
 War for Africa is an open-source, cross-platform game written in C++.
 It depends on the SFML library for rendering, audio, and network functions.
+It also depends on the TGUI library for various UI components.
 The game is based off of the classic board game "Risk."
 It was developed by Jonathan Heinz.
 
@@ -18,7 +19,7 @@ This code has been tested to compile on Windows under MinGW, using g++ 4.8.1. Co
 
 #Credits
 
-- Jonathan Heinz - Software Developer, Game Designer, Project Lead
+- Jonathan Heinz - Software Developer, Game Designer, Graphic Designer, Project Lead
 
 - Salvador Mendoza - Game Designer
 
