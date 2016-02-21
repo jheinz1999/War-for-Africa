@@ -1,7 +1,5 @@
 // moveSoldiers.cpp - Moves soldiers
 
-#include <algorithm>
-
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
 
@@ -79,6 +77,18 @@ int current = currentPlayer;
 			Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::Slider>("slider")->getValue());
 
 			Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::Slider>("slider")->getValue() * -1);
+
+				if (Game::gameMap.getMapPiece(moveDestination)->getController() == Controller::Unclaimed) {
+
+				player[currentPlayer].addState(Game::gameMap.getMapPiece(moveDestination)->getRank());
+	
+				std::ostringstream str;
+
+				str << "States: " << player[currentPlayer].getStatesOwned();
+				states.setString(str.str());
+				str.str(std::string());
+
+				}
 
 			Game::gameMap.getMapPiece(moveDestination)->setController(currentPlayer);
 

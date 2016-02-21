@@ -34,6 +34,12 @@ this->controller = controller;
 
 		break;
 
+		case Controller::Unclaimed :
+
+		color = Game::gameMap.unclaimed;
+
+		break;
+
 	}
 
 }

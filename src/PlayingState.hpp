@@ -34,6 +34,7 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	void valueChanged();
 	void moveButtonPressed();
 	void moveWindowClosed();
+	void combat();
 
 	sf::Music music;
 	sf::SoundBuffer buffer, b2;
@@ -42,9 +43,11 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	Controller currentPlayer;
 	int armiesToPlace, armiesPlaced;
 	Player player[4];
-	bool aNotificationShown, mNotificationShown;
-	bool moveSourceSelected, moving;
+	bool aNotificationShown, mNotificationShown, cNotificationShown;
+	bool moveSourceSelected, moving, fought, cInitialized;
 	std::string moveSource, moveDestination;
+	int cNotificationStage;
+	int p1Troops, p2Troops, p1Loss, p2Loss;
 
 	sf::Text turn, troops, states, money;
 

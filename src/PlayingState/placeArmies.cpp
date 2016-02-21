@@ -48,6 +48,14 @@ void PlayingState::placeArmies() {
 
 			armiesToPlace--;
 
+			player[currentPlayer].changeTroopCount(1);
+
+			std::ostringstream str;
+
+			str << "Troops: " << player[currentPlayer].getTroopCount();
+			troops.setString(str.str());
+			str.str(std::string());
+
 			}
 
 			else {

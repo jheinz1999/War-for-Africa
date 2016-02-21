@@ -54,7 +54,7 @@ std::ostringstream str;
 
 		case 4: // Combat
 
-		std::cout << "COMBAT\n";
+		combat();
 
 		break;
 
@@ -63,6 +63,26 @@ std::ostringstream str;
 		break;
 
 		case 6: // Pay taxes
+
+			if (!Game::gui.get("messageBox")->isVisible()) {
+
+			dough = player[current].calculateIncome();
+
+			str << "Money: " << player[current].getMoney();
+			money.setString(str.str());
+							
+			str.str("");
+			
+			str << "You have received $" << dough << " in tax revenue.";
+		
+			Game::gui.get("messageBox")->show();
+			Game::gui.get<tgui::MessageBox>("messageBox")->setText((sf::String)str.str());
+
+			stage++;
+
+			armiesToPlace = 2;
+
+			}
 
 		break;
 
