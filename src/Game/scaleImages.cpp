@@ -6,15 +6,13 @@
 
 void Game::scaleImages() {
 
-sf::VideoMode screen = getCurrentWindowSize();
+std::cout << Game::window.getView().getViewport().width << " " << Game::window.getView().getViewport().height << "\n";
 
-std::cout << screen.width << " " << screen.height << "\n";
-
-float height = screen.height / entityManager.getEntity("bg")->getBoundingBox().height;
-float width = screen.width / entityManager.getEntity("bg")->getBoundingBox().width / 1.3;
+float height = 768 / entityManager.getEntity("bg")->getBoundingBox().height;
+float width = 1024 / entityManager.getEntity("bg")->getBoundingBox().width / 1.3;
 
 entityManager.getEntity("bg")->scale(width, height);
-entityManager.getEntity("notbar")->scale((screen.width - entityManager.getEntity("bg")->getBoundingBox().width) / entityManager.getEntity("notbar")->getBoundingBox().width, height);
+entityManager.getEntity("notbar")->scale((1024 - entityManager.getEntity("bg")->getBoundingBox().width) / entityManager.getEntity("notbar")->getBoundingBox().width, height);
 
 gameMap.getMapPiece("algeria")->scale(width, height);
 gameMap.getMapPiece("mali")->scale(width, height);
@@ -59,7 +57,7 @@ entityManager.getEntity("bg")->getSprite()->setOrigin(0, 0);
 entityManager.getEntity("notbar")->getSprite()->setOrigin(0, 0);
 entityManager.getEntity("notbar")->setPosition(sf::Vector2f(entityManager.getEntity("bg")->getBoundingBox().width, 0));
 
-	if (screen.width == 1024 && screen.height == 768) {
+	if (1) {
 
 	gameMap.getMapPiece("mauritania")->getSprite()->setPosition(sf::Vector2f(77, 174));
 	gameMap.getMapPiece("algeria")->getSprite()->setPosition(sf::Vector2f(213, 98));

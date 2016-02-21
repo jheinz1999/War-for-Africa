@@ -223,7 +223,6 @@ senegal->addAdjacentState("mali");
 senegal->addAdjacentState("guinea");
 
 sudan->addAdjacentState("");
-
 nigeria->addAdjacentState("");
 morocco->addAdjacentState("");
 ethiopia->addAdjacentState("");

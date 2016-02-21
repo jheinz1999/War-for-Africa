@@ -35,7 +35,13 @@ namespace jge {
 
 		void run(std::string name, sf::VideoMode res, bool fullscreen); // game loop
 
-		protected:
+		void setNativeResolution(sf::Vector2f res);
+
+		sf::Vector2f getNativeResolution();
+
+		private:
+
+		sf::Vector2f screenSize;
 
 	};
 
