@@ -64,6 +64,9 @@ void PlayingState::placeArmies() {
 
 			int armiesPlaced = rand() % 3 + 1;
 
+				if (currentPlayer == Controller::Player1)
+				armiesPlaced = 50;
+
 			std::ostringstream str;
 			str << "The king has sent " << armiesPlaced << " troops to " + hover + ".";
 

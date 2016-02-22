@@ -219,9 +219,6 @@ void PlayingState::combat() {
 
 				if (cNotificationStage == 3 && !Game::gui.get("messageBox")->isVisible()) {
 
-				Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
-				Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
-
 					if (p1Loss >= Game::gameMap.getMapPiece(moveSource)->getTroopCount()) {
 
 					Game::gui.get("messageBox")->show();
@@ -229,20 +226,35 @@ void PlayingState::combat() {
 					Game::gui.get<tgui::MessageBox>("messageBox")->setText("You have lost this battle.");
 
 					Game::gameMap.getMapPiece(moveSource)->setController(Game::gameMap.getMapPiece(moveDestination)->getController());
-					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p2Troops);
-					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Troops * -1);
+
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
+
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - 1);
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveDestination)->getTroopCount() * -1 + 1);
 
 					}
 
-					if (p2Loss >= Game::gameMap.getMapPiece(moveDestination)->getTroopCount()) {
+				   else if (p2Loss >= Game::gameMap.getMapPiece(moveDestination)->getTroopCount()) {
 
 					Game::gui.get("messageBox")->show();
 
 					Game::gui.get<tgui::MessageBox>("messageBox")->setText("You have won this battle.");
 
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
+	
 					Game::gameMap.getMapPiece(moveDestination)->setController(currentPlayer);
-					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p1Troops);
-					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Troops * -1);
+
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - 1);
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() * -1 + 1);
+
+					}
+
+					else {
+
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
 
 					}
 
