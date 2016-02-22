@@ -107,6 +107,9 @@ void PlayingState::combat() {
 							else if (p2Num > p1Num)
 							p1Loss++;
 
+							else
+							x--;
+
 						}
 
 					p2Troops -= p2Loss;
@@ -127,6 +130,9 @@ void PlayingState::combat() {
 								else if (p2Num > p1Num)
 								p1Loss++;
 
+								else
+								x--;
+
 							}
 
 						}
@@ -145,6 +151,9 @@ void PlayingState::combat() {
 
 							else if (p2Num > p1Num)
 							p1Loss++;
+
+							else
+							x--;
 
 						}
 
@@ -165,6 +174,9 @@ void PlayingState::combat() {
 
 								else if (p2Num > p1Num)
 								p1Loss++;
+
+								else
+								x--;
 
 							}
 
