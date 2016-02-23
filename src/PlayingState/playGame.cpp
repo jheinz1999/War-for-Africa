@@ -1,6 +1,7 @@
 // playGame.cpp - Game logic
 
 #include <iostream>
+#include <cstdlib>
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
@@ -94,6 +95,23 @@ std::ostringstream str;
 
 			stage = 1;
 			currentPlayer = getNextPlayer();
+
+			int deadPlayers = 0;
+
+				while (player[currentPlayer].getStatesOwned() == 0) {
+
+				currentPlayer = getNextPlayer();
+				
+				deadPlayers++;
+
+					if (deadPlayers == 3) {
+	
+					std::cout << "VICTORY\n";
+					exit(0);
+
+					}
+
+				}
 
 			}
 

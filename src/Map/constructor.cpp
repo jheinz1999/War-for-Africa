@@ -222,30 +222,124 @@ senegal->addAdjacentState("mauritania");
 senegal->addAdjacentState("mali");
 senegal->addAdjacentState("guinea");
 
-sudan->addAdjacentState("");
-nigeria->addAdjacentState("");
-morocco->addAdjacentState("");
-ethiopia->addAdjacentState("");
-westernSahara->addAdjacentState("");
-tunisia->addAdjacentState("");
-somalia->addAdjacentState("");
-ghana->addAdjacentState("");
-liberia->addAdjacentState("");
-sierraLeone->addAdjacentState("");
-cameroon->addAdjacentState("");
-uganda->addAdjacentState("");
-centralRepublic->addAdjacentState("");
-congo->addAdjacentState("");
-gabon->addAdjacentState("");
-kenya->addAdjacentState("");
-democraticCongo->addAdjacentState("");
-angola->addAdjacentState("");
-namibia->addAdjacentState("");
-zambia->addAdjacentState("");
-mozambique->addAdjacentState("");
-zimbabwe->addAdjacentState("");
-botswana->addAdjacentState("");
-southAfrica->addAdjacentState("");
+sudan->addAdjacentState("egypt");
+sudan->addAdjacentState("libya");
+sudan->addAdjacentState("chad");
+sudan->addAdjacentState("central republic");
+sudan->addAdjacentState("democratic congo");
+sudan->addAdjacentState("uganda");
+sudan->addAdjacentState("kenya");
+sudan->addAdjacentState("ethiopia");
+
+nigeria->addAdjacentState("niger");
+nigeria->addAdjacentState("cameroon");
+
+morocco->addAdjacentState("western sahara");
+morocco->addAdjacentState("algeria");
+
+ethiopia->addAdjacentState("sudan");
+ethiopia->addAdjacentState("kenya");
+ethiopia->addAdjacentState("somalia");
+
+westernSahara->addAdjacentState("mauritania");
+westernSahara->addAdjacentState("morocco");
+
+tunisia->addAdjacentState("algeria");
+tunisia->addAdjacentState("libya");
+
+somalia->addAdjacentState("ethiopia");
+somalia->addAdjacentState("kenya");
+
+ghana->addAdjacentState("burkina faso");
+ghana->addAdjacentState("cote divoire");
+ghana->addAdjacentState("liberia");
+
+liberia->addAdjacentState("sierra leone");
+liberia->addAdjacentState("guinea");
+liberia->addAdjacentState("cote divoire");
+
+sierraLeone->addAdjacentState("guinea");
+sierraLeone->addAdjacentState("liberia");
+
+cameroon->addAdjacentState("nigeria");
+cameroon->addAdjacentState("chad");
+cameroon->addAdjacentState("central republic");
+cameroon->addAdjacentState("congo");
+cameroon->addAdjacentState("gabon");
+
+uganda->addAdjacentState("democratic congo");
+uganda->addAdjacentState("sudan");
+uganda->addAdjacentState("kenya");
+
+centralRepublic->addAdjacentState("cameroon");
+centralRepublic->addAdjacentState("chad");
+centralRepublic->addAdjacentState("sudan");
+centralRepublic->addAdjacentState("democratic congo");
+centralRepublic->addAdjacentState("congo");
+
+congo->addAdjacentState("gabon");
+congo->addAdjacentState("cameroon");
+congo->addAdjacentState("central republic");
+congo->addAdjacentState("democratic congo");
+congo->addAdjacentState("angola");
+
+gabon->addAdjacentState("cameroon");
+gabon->addAdjacentState("congo");
+
+kenya->addAdjacentState("tanzania");
+kenya->addAdjacentState("uganda");
+kenya->addAdjacentState("sudan");
+kenya->addAdjacentState("ethiopia");
+kenya->addAdjacentState("somalia");
+
+democraticCongo->addAdjacentState("angola");
+democraticCongo->addAdjacentState("zambia");
+democraticCongo->addAdjacentState("tanzania");
+democraticCongo->addAdjacentState("uganda");
+democraticCongo->addAdjacentState("sudan");
+democraticCongo->addAdjacentState("central republic");
+democraticCongo->addAdjacentState("congo");
+
+angola->addAdjacentState("congo");
+angola->addAdjacentState("democratic congo");
+angola->addAdjacentState("zambia");
+angola->addAdjacentState("namibia");
+
+namibia->addAdjacentState("angola");
+namibia->addAdjacentState("zambia");
+namibia->addAdjacentState("botswana");
+namibia->addAdjacentState("south africa");
+
+zambia->addAdjacentState("angola");
+zambia->addAdjacentState("namibia");
+zambia->addAdjacentState("zimbabwe");
+zambia->addAdjacentState("mozambique");
+zambia->addAdjacentState("tanzania");
+zambia->addAdjacentState("democratic congo");
+
+mozambique->addAdjacentState("south africa");
+mozambique->addAdjacentState("zimbabwe");
+mozambique->addAdjacentState("zambia");
+mozambique->addAdjacentState("tanzania");
+
+zimbabwe->addAdjacentState("south africa");
+zimbabwe->addAdjacentState("botswana");
+zimbabwe->addAdjacentState("zambia");
+zimbabwe->addAdjacentState("mozambique");
+
+botswana->addAdjacentState("namibia");
+botswana->addAdjacentState("zimbabwe");
+botswana->addAdjacentState("south africa");
+
+southAfrica->addAdjacentState("namibia");
+southAfrica->addAdjacentState("botswana");
+southAfrica->addAdjacentState("zimbabwe");
+southAfrica->addAdjacentState("mozambique");
+
+tanzania->addAdjacentState("mozambique");
+tanzania->addAdjacentState("zambia");
+tanzania->addAdjacentState("democratic congo");
+tanzania->addAdjacentState("kenya");
 
 entityManager.addEntity("algeria", algeria);
 entityManager.addEntity("mali", mali);

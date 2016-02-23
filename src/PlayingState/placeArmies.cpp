@@ -58,7 +58,7 @@ void PlayingState::placeArmies() {
 
 			}
 
-			else if (hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
+			else if (hover != "none" && stage == 0 && (Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
 
 			sound2.play();
 

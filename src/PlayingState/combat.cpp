@@ -96,8 +96,19 @@ void PlayingState::combat() {
 
 				std::srand(std::time(NULL));
 			
-				p2Atk = (rand() % (Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - 1)) + 1;
-				p2Def = Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - p2Atk;
+					if (Game::gameMap.getMapPiece(moveDestination)->getTroopCount() != 1) {
+
+					p2Atk = (rand() % (Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - 1)) + 1;
+					p2Def = Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - p2Atk;
+
+					}
+
+					else {
+
+					p2Atk = rand() % 1;
+					p2Def = 1 - p2Atk;
+
+					}
 
 				std::cout << "PLAYER 1: ATK: " << p1Atk << " DEF: " << p1Def << std::endl;
 				std::cout << "PLAYER 2: ATK: " << p2Atk << " DEF: " << p2Def << std::endl;
@@ -179,6 +190,9 @@ void PlayingState::combat() {
 
 					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
+
+					player[Game::gameMap.getMapPiece(moveDestination)->getController()].deleteState(Game::gameMap.getMapPiece(moveDestination)->getRank());
+
 					Game::gameMap.getMapPiece(moveDestination)->setController(currentPlayer);
 
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - 1);
@@ -192,6 +206,9 @@ void PlayingState::combat() {
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
 
 					}
+
+				player[Game::gameMap.getMapPiece(moveDestination)->getController()].changeTroopCount(p2Loss * -1);
+				player[Game::gameMap.getMapPiece(moveSource)->getController()].changeTroopCount(p1Loss * -1);
 
 				fought = 0;
 				cNotificationStage = 0;
