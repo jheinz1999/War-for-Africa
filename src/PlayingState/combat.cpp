@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ctime>
 #include <sstream>
+#include <cstdlib>
 
 #include "../PlayingState.hpp"
 #include "../Game.hpp"
@@ -62,9 +63,10 @@ void PlayingState::combat() {
 
 					if (hover != "none" && hover == Game::gameMap.getMapPiece(moveSource)->getAdjacentStates()->at(x) && (Game::gameMap.getMapPiece(hover)->getController() != Controller::Unclaimed && Game::gameMap.getMapPiece(hover)->getController() != currentPlayer)) {
 
-					Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::Slider>("slider")->setMaximum(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - 1);
+					Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider")->setMaximum(Game::gameMap.getMapPiece(moveSource)->getTroopCount());
+					Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider2")->setMaximum(Game::gameMap.getMapPiece(moveSource)->getTroopCount());
 
-					Game::gui.get("moveWindow")->show();
+					Game::gui.get("attackWindow")->show();
 
 					moving = 1;
 
@@ -76,12 +78,12 @@ void PlayingState::combat() {
 
 			}
 
-			if (moving && !Game::gui.get("moveWindow")->isVisible()) {
+			if (moving && !Game::gui.get("attackWindow")->isVisible()) {
 
 				if (!cInitialized) {
 
-				p1Troops = Game::gui.get<tgui::ChildWindow>("moveWindow")->get<tgui::Slider>("slider")->getValue();
-				p2Troops = Game::gameMap.getMapPiece(moveDestination)->getTroopCount();
+				p1Atk = Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider")->getValue();
+				p1Def = Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider2")->getValue();
 
 				p1Loss = 0;
 				p2Loss = 0;
@@ -94,95 +96,21 @@ void PlayingState::combat() {
 
 				std::srand(std::time(NULL));
 			
-					if (p1Troops > p2Troops) {
+				p2Atk = (rand() % (Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - 1)) + 1;
+				p2Def = Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - p2Atk;
 
-						for (int x = 0; x < p2Troops; x++) {
+				std::cout << "PLAYER 1: ATK: " << p1Atk << " DEF: " << p1Def << std::endl;
+				std::cout << "PLAYER 2: ATK: " << p2Atk << " DEF: " << p2Def << std::endl;
 
-						int p1Num = (rand() % 6) + 1;
-						int p2Num = (rand() % 6) + 1;
+				p1Loss = p2Atk - p1Def;
 
-							if (p1Num > p2Num)
-							p2Loss++;
+					if (p1Loss < 0)
+					p1Loss = 0;
 
-							else if (p2Num > p1Num)
-							p1Loss++;
+				p2Loss = p1Atk - p2Def;
 
-							else
-							x--;
-
-						}
-
-					p2Troops -= p2Loss;
-					p1Troops -= p1Loss;
-
-						if (p2Troops > 0 && p1Troops > 0) {
-
-						int remaining = p1Troops - p2Troops;
-
-							for (int x = 0; x < remaining; x++) {
-
-							int p1Num = (rand() % 6) + 1;
-							int p2Num = (rand() % 6) + 1;
-
-								if (p1Num > p2Num)
-								p2Loss++;
-
-								else if (p2Num > p1Num)
-								p1Loss++;
-
-								else
-								x--;
-
-							}
-
-						}
-
-					}
-
-					else {
-				
-						for (int x = 0; x < p1Troops; x++) {
-
-						int p1Num = (rand() % 6) + 1;
-						int p2Num = (rand() % 6) + 1;
-
-							if (p1Num > p2Num)
-							p2Loss++;
-
-							else if (p2Num > p1Num)
-							p1Loss++;
-
-							else
-							x--;
-
-						}
-
-					p2Troops -= p2Loss;
-					p1Troops -= p1Loss;
-
-						if (p2Troops > 0 && p1Troops > 0) {
-
-						int remaining = p2Troops - p1Troops;
-
-							for (int x = 0; x < remaining; x++) {
-
-							int p1Num = (rand() % 6) + 1;
-							int p2Num = (rand() % 6) + 1;
-
-								if (p1Num > p2Num)
-								p2Loss++;
-
-								else if (p2Num > p1Num)
-								p1Loss++;
-
-								else
-								x--;
-
-							}
-
-						}
-
-					}
+					if (p2Loss < 0)
+					p2Loss = 0;
 
 				fought = 1;
 				cNotificationStage = 1;
@@ -237,13 +165,9 @@ void PlayingState::combat() {
 
 					Game::gui.get<tgui::MessageBox>("messageBox")->setText("You have lost this battle.");
 
-					Game::gameMap.getMapPiece(moveSource)->setController(Game::gameMap.getMapPiece(moveDestination)->getController());
+					exit(0); // lose condition here
 
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
-					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
-
-					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gameMap.getMapPiece(moveDestination)->getTroopCount() - 1);
-					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveDestination)->getTroopCount() * -1 + 1);
 
 					}
 
@@ -253,20 +177,19 @@ void PlayingState::combat() {
 
 					Game::gui.get<tgui::MessageBox>("messageBox")->setText("You have won this battle.");
 
-					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
 					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
-	
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
 					Game::gameMap.getMapPiece(moveDestination)->setController(currentPlayer);
 
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - 1);
-					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() * -1 + 1);
+					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(Game::gameMap.getMapPiece(moveDestination)->getTroopCount() *  -1);
 
 					}
 
 					else {
 
-					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
 					Game::gameMap.getMapPiece(moveSource)->changeTroopCount(p1Loss * -1);
+					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(p2Loss * -1);
 
 					}
 

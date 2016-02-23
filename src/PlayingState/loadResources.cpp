@@ -23,6 +23,10 @@ stage++;
 
 Game::gui.get("doneButton")->hide();
 
+aNotificationShown = 0;
+mNotificationShown = 0;
+cNotificationShown = 0;
+
 }
 
 void PlayingState::valueChanged() {
@@ -43,11 +47,55 @@ Game::gui.get("moveWindow")->hide();
 
 }
 
+void PlayingState::attackButtonPressed() {
+
+sound.play();
+
+Game::gui.get("attackWindow")->hide();
+
+}
+
 void PlayingState::moveWindowClosed() {
 
 sound.play();
 
 Game::gui.get("moveWindow")->hide();
+
+moveSourceSelected = 0;
+
+moving = 0;
+
+}
+
+void PlayingState::slider1Changed() {
+
+std::ostringstream o;
+
+o << Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider")->getValue();
+
+Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::TextBox>("text")->setText(o.str());
+
+Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider2")->setMaximum(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider")->getValue());
+
+}
+
+void PlayingState::slider2Changed() {
+
+std::ostringstream o;
+
+o << Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider2")->getValue();
+
+Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::TextBox>("text2")->setText(o.str());
+
+Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider")->setMaximum(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - Game::gui.get<tgui::ChildWindow>("attackWindow")->get<tgui::Slider>("slider2")->getValue());
+
+}
+
+void PlayingState::attackWindowClosed() {
+
+sound.play();
+
+Game::gui.get("attackWindow")->hide();
 
 moveSourceSelected = 0;
 
@@ -125,6 +173,50 @@ moveWindow->connect("Closed", &PlayingState::moveWindowClosed, this);
 moveWindow->hide();
 
 Game::gui.add(moveWindow, "moveWindow");
+
+tgui::ChildWindow::Ptr attackWindow = Game::theme->load("ChildWindow");
+
+tgui::Slider::Ptr slider2 = Game::theme->load("Slider");
+slider2->setMinimum(0);
+slider2->setPosition(sf::Vector2f(10, 10));
+slider2->setSize(sf::Vector2f(380, 30));
+slider2->connect("ValueChanged", &PlayingState::slider1Changed, this);
+
+tgui::TextBox::Ptr textBox2 = Game::theme->load("TextBox");
+textBox2->setReadOnly(1);
+textBox2->setText("0");
+textBox2->setPosition(sf::Vector2f(150, 45));
+textBox2->setSize(sf::Vector2f(50, 50));
+
+tgui::Slider::Ptr slider3 = Game::theme->load("Slider");
+slider3->setMinimum(0);
+slider3->setPosition(sf::Vector2f(10, 95));
+slider3->setSize(sf::Vector2f(380, 30));
+slider3->connect("ValueChanged", &PlayingState::slider2Changed, this);
+
+tgui::TextBox::Ptr textBox3 = Game::theme->load("TextBox");
+textBox3->setReadOnly(1);
+textBox3->setText("0");
+textBox3->setPosition(sf::Vector2f(150, 150));
+textBox3->setSize(sf::Vector2f(50, 50));
+
+tgui::Button::Ptr acceptButton2 = Game::theme->load("Button");
+
+acceptButton2->setText("OK");
+acceptButton2->setPosition(sf::Vector2f(100, 240));
+acceptButton2->setSize(sf::Vector2f(200, 50));
+acceptButton2->connect("Pressed", &PlayingState::attackButtonPressed, this);
+
+attackWindow->add(slider2, "slider");
+attackWindow->add(slider3, "slider2");
+attackWindow->add(textBox2, "text");
+attackWindow->add(textBox3, "text2");
+attackWindow->add(acceptButton2, "acceptButton");
+attackWindow->setPosition(sf::Vector2f(283, 330));
+attackWindow->connect("Closed", &PlayingState::attackWindowClosed, this);
+attackWindow->hide();
+
+Game::gui.add(attackWindow, "attackWindow");
 
 turn.setFont(*Game::gui.getFont());
 turn.setColor(sf::Color(190, 190, 190));

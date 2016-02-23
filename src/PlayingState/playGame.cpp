@@ -60,20 +60,22 @@ std::ostringstream str;
 
 		case 5: // Purchase goods
 
+		stage++;
+
 		break;
 
 		case 6: // Pay taxes
 
 			if (!Game::gui.get("messageBox")->isVisible()) {
 
-			dough = player[current].calculateIncome();
+			dough = player[current].calculateTax();
 
 			str << "Money: " << player[current].getMoney();
 			money.setString(str.str());
 							
 			str.str("");
 			
-			str << "You have received $" << dough << " in tax revenue.";
+			str << "Your imperialization efforts costed $" << dough << " this turn.";
 		
 			Game::gui.get("messageBox")->show();
 			Game::gui.get<tgui::MessageBox>("messageBox")->setText((sf::String)str.str());
@@ -81,6 +83,17 @@ std::ostringstream str;
 			stage++;
 
 			armiesToPlace = 2;
+
+			}
+
+		break;
+
+		case 7:
+
+			if (!Game::gui.get("messageBox")->isVisible()) {
+
+			stage = 1;
+			currentPlayer = getNextPlayer();
 
 			}
 

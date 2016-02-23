@@ -37,11 +37,11 @@ void PlayingState::placeArmies() {
 
 		}
 
-		if (Game::isMouseClicked && hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == currentPlayer || Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
+		if (Game::isMouseClicked) {
 
-		sound2.play();
+			if (stage > 0 && hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == currentPlayer) && Game::gameMap.getMapPiece(hover)->isCoastal) {	
 
-			if (stage > 0) {	
+			sound2.play();
 
 			Game::gameMap.getMapPiece(hover)->setController(currentPlayer);
 			Game::gameMap.getMapPiece(hover)->changeTroopCount(1);
@@ -58,14 +58,13 @@ void PlayingState::placeArmies() {
 
 			}
 
-			else {
+			else if (hover != "none" && (Game::gameMap.getMapPiece(hover)->getController() == Controller::Unclaimed) && Game::gameMap.getMapPiece(hover)->getRank() <= 3 && Game::gameMap.getMapPiece(hover)->isCoastal) {
+
+			sound2.play();
 
 			std::srand(std::time(NULL));
 
 			int armiesPlaced = rand() % 3 + 1;
-
-				if (currentPlayer == Controller::Player1)
-				armiesPlaced = 50;
 
 			std::ostringstream str;
 			str << "The king has sent " << armiesPlaced << " troops to " + hover + ".";
@@ -105,9 +104,15 @@ void PlayingState::placeArmies() {
 
 		}
 
+	aNotificationShown = 0;
+
 	}
 
-	else
+	else {
+
 	stage++;
+	aNotificationShown = 0;
+
+	}
 
 }
