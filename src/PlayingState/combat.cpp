@@ -193,6 +193,8 @@ void PlayingState::combat() {
 
 					player[Game::gameMap.getMapPiece(moveDestination)->getController()].deleteState(Game::gameMap.getMapPiece(moveDestination)->getRank());
 
+					player[currentPlayer].addState(Game::gameMap.getMapPiece(moveDestination)->getRank());
+
 					Game::gameMap.getMapPiece(moveDestination)->setController(currentPlayer);
 
 					Game::gameMap.getMapPiece(moveDestination)->changeTroopCount(Game::gameMap.getMapPiece(moveSource)->getTroopCount() - 1);
@@ -208,7 +210,8 @@ void PlayingState::combat() {
 					}
 
 				player[Game::gameMap.getMapPiece(moveDestination)->getController()].changeTroopCount(p2Loss * -1);
-				player[Game::gameMap.getMapPiece(moveSource)->getController()].changeTroopCount(p1Loss * -1);
+
+				player[currentPlayer].changeTroopCount(p1Loss * -1);
 
 				fought = 0;
 				cNotificationStage = 0;

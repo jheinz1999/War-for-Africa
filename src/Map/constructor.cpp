@@ -210,6 +210,7 @@ coteDivoire->addAdjacentState("ghana");
 coteDivoire->addAdjacentState("burkina faso");
 coteDivoire->addAdjacentState("mali");
 coteDivoire->addAdjacentState("guinea");
+coteDivoire->addAdjacentState("liberia");
 
 egypt->addAdjacentState("libya");
 egypt->addAdjacentState("sudan");
@@ -217,6 +218,8 @@ egypt->addAdjacentState("sudan");
 guinea->addAdjacentState("senegal");
 guinea->addAdjacentState("mali");
 guinea->addAdjacentState("cote divoire");
+guinea->addAdjacentState("sierra leone");
+guinea->addAdjacentState("liberia");
 
 senegal->addAdjacentState("mauritania");
 senegal->addAdjacentState("mali");

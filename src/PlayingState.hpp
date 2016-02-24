@@ -26,7 +26,7 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 	void setSpriteColors();
 	std::string checkMouseHover();
 	void placeArmies();
-	Controller getNextPlayer();
+	void getNextPlayer();
 	void close();
 	void playGame();
 	void moveSoldiers();

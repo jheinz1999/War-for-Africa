@@ -94,26 +94,20 @@ std::ostringstream str;
 			if (!Game::gui.get("messageBox")->isVisible()) {
 
 			stage = 1;
-			currentPlayer = getNextPlayer();
-
-			int deadPlayers = 0;
-
-				while (player[currentPlayer].getStatesOwned() == 0) {
-
-				currentPlayer = getNextPlayer();
-				
-				deadPlayers++;
-
-					if (deadPlayers == 3) {
-	
-					std::cout << "VICTORY\n";
-					exit(0);
-
-					}
-
-				}
+			getNextPlayer();
 
 			}
+
+		break;
+
+		case 8: // victory
+
+		Game::gui.get("messageBox")->show();
+
+		str << "Player " << currentPlayer + 1 << ", you have won the game.";
+		Game::gui.get<tgui::MessageBox>("messageBox")->setText(str.str());
+
+		str.str(std::string());
 
 		break;
 

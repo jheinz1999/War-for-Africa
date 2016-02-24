@@ -6,4 +6,7 @@ void Player::deleteState(int rank) {
 
 stateClasses[rank]--;
 
+	if (getStatesOwned() <= 0)
+	living = 0;
+
 }

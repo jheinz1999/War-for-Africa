@@ -24,12 +24,15 @@ class Player {
 
 	void changeTroopCount(int amount);
 
+	bool isDead();
+
 	private:
 
 	int money;
 	int troops;
 	int boats;
 	int stateClasses[6];
+	bool living;
 
 };
 

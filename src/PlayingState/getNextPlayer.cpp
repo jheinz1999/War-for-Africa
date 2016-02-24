@@ -5,7 +5,7 @@
 #include "../Controller.hpp"
 #include "../Game.hpp"
 
-Controller PlayingState::getNextPlayer() {
+void PlayingState::getNextPlayer() {
 
 pTurn++;
 
@@ -13,81 +13,65 @@ std::ostringstream str;
 
 aNotificationShown = 0;
 mNotificationShown = 0;
+cNotificationShown = 0;
 
-	if (currentPlayer == Controller::Player1) {
+int pNum = currentPlayer;
 
-	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 2, it is your turn.");
+int deadCount;
 
-	turn.setString("Player: 2");
-	str << "Troops: " << player[1].getTroopCount();
-	troops.setString(str.str());
-	str.str(std::string());
-	str << "Money: " << player[1].getMoney();
-	money.setString(str.str());
-	str.str(std::string());
-	str << "States: " << player[1].getStatesOwned();
-	states.setString(str.str());
+	if (currentPlayer != Controller::Player4) {
 
-	return Controller::Player2;
+	pNum++;
+
+	currentPlayer = (Controller)pNum;
 
 	}
 
-	if (currentPlayer == Controller::Player2) {
+	else {
 
-	turn.setString("Player: 3");
-	str << "Troops: " << player[2].getTroopCount();
-	troops.setString(str.str());
-	str.str(std::string());
-	str << "Money: " << player[2].getMoney();
-	money.setString(str.str());
-	str.str(std::string());
-	str << "States: " << player[2].getStatesOwned();
-	states.setString(str.str());
-
-	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 3, it is your turn.");
-
-	return Controller::Player3;
+	currentPlayer = Controller::Player1;
 
 	}
 
-	if (currentPlayer == Controller::Player3) {
+	while (player[currentPlayer].isDead()) {
 
-	turn.setString("Player: 4");
-	str << "Troops: " << player[3].getTroopCount();
-	troops.setString(str.str());
-	str.str(std::string());
-	str << "Money: " << player[3].getMoney();
-	money.setString(str.str());
-	str.str(std::string());
-	str << "States: " << player[3].getStatesOwned();
-	states.setString(str.str());
+	deadCount++;
 
-	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 4, it is your turn.");
+		if (currentPlayer != Controller::Player4) {
 
-	return Controller::Player4;
+		pNum++;
+		currentPlayer = (Controller)pNum;
+
+		}
+
+		else
+		currentPlayer = Controller::Player1;
 
 	}
 
-	if (currentPlayer == Controller::Player4) {
+	if (deadCount < 3) {
 
-	turn.setString("Player: 1");
-	str << "Troops: " << player[0].getTroopCount();
+	str << "Player " << currentPlayer + 1 << ", it is your turn.";
+	Game::gui.get("messageBox")->show();
+	Game::gui.get<tgui::MessageBox>("messageBox")->setText(str.str());
+	str.str(std::string());
+	str << "Player: " << currentPlayer + 1;
+	turn.setString(str.str());
+	str.str(std::string());
+	str << "Troops: " << player[currentPlayer].getTroopCount();
 	troops.setString(str.str());
 	str.str(std::string());
-	str << "Money: " << player[0].getMoney();
+	str << "Money: " << player[currentPlayer].getMoney();
 	money.setString(str.str());
 	str.str(std::string());
-	str << "States: " << player[0].getStatesOwned();
+	str << "States: " << player[currentPlayer].getStatesOwned();
 	states.setString(str.str());
 
+	}
 
-	Game::gui.get("messageBox")->show();
-	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Player 1, it is your turn.");
+	else {
 
-	return Controller::Player1;
+	stage++;
 
 	}
 

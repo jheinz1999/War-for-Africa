@@ -16,6 +16,9 @@ void PlayingState::placeArmies() {
 	Game::gui.get<tgui::MessageBox>("messageBox")->setText("Place your armies.");
 
 	aNotificationShown = 1;
+	
+		if (stage > 0)
+		Game::gui.get("doneButton")->show();
 
 	}
 
@@ -93,13 +96,13 @@ void PlayingState::placeArmies() {
 		stage++;
 		armiesPlaced++;
 
-		currentPlayer = getNextPlayer();
+		getNextPlayer();
 
 		}
 
 		if (!Game::gui.get("messageBox")->isVisible()) {
 
-		currentPlayer = getNextPlayer();
+		getNextPlayer();
 		armiesToPlace = 1;		
 
 		}
