@@ -1,5 +1,6 @@
 #include <TGUI/TGUI.hpp>
 #include <sstream>
+#include <iostream>
 
 #include "../PlayingState.hpp"
 #include "../Controller.hpp"
@@ -17,7 +18,7 @@ cNotificationShown = 0;
 
 int pNum = currentPlayer;
 
-int deadCount;
+int deadCount = 0;
 
 	if (currentPlayer != Controller::Player4) {
 
@@ -67,11 +68,15 @@ int deadCount;
 	str << "States: " << player[currentPlayer].getStatesOwned();
 	states.setString(str.str());
 
+		if (stage != 0)	
+		stage = 1;
+
 	}
 
 	else {
 
 	stage++;
+	std::cout << "VICTORY\n";
 
 	}
 

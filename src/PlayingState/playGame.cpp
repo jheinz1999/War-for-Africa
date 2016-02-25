@@ -93,7 +93,6 @@ std::ostringstream str;
 
 			if (!Game::gui.get("messageBox")->isVisible()) {
 
-			stage = 1;
 			getNextPlayer();
 
 			}
