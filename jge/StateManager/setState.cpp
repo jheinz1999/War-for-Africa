@@ -8,8 +8,12 @@ namespace jge {
 
 		std::map<std::string, IState*>::iterator i = stateList.find(name);
 
-			if (i != stateList.end())
+			if (i != stateList.end()) {
+
 			state = i->second;
+			i->second->loadResources();
+
+			}
 
 	}
 

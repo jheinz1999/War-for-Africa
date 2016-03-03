@@ -14,7 +14,7 @@ namespace jge {
 		public:
 
 		Entity();
-		~Entity();
+		virtual ~Entity();
 
 		virtual bool setTexture(std::string tString); // Sets texture
 
@@ -34,11 +34,21 @@ namespace jge {
 
 		virtual bool intersects(Entity* entity);
 
+		virtual void setName(std::string name);
+
+		virtual std::string getName();
+
+		virtual bool isVisible() {return visible;}
+
 		private:
 
 		sf::Sprite* sprite; // Sprite
 		sf::Texture texture; // Texture
 		sf::Image image; // Image
+
+		std::string name; // personal id
+
+		bool visible;
 
 	};
 

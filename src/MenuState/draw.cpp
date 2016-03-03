@@ -8,6 +8,6 @@
 
 void MenuState::draw(sf::RenderWindow &window) {
 
-Game::entityManager.getDerivedEntity<jge::AnimatedEntity*>("rotating earth")->draw(window);
+Game::entityManager.getEntity("rotating earth")->draw(window);
 
 } 

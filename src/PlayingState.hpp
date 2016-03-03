@@ -14,11 +14,11 @@ class PlayingState : public jge::IState { // Game state. Must inherit from IStat
 
 	public:
 
-	void update();
+	void update(sf::Time dt);
 	void draw(sf::RenderWindow &window);
 	void loadResources();
 	void processEvents(sf::RenderWindow &window, sf::Event event);
-	void handleInput(sf::Keyboard::Key key);
+	void handleInput();
 
 	private:
 

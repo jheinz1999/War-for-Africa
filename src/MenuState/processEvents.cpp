@@ -29,12 +29,5 @@ void MenuState::processEvents(sf::RenderWindow &window, sf::Event event) {
 		Game::isRightDown = 0;
 
 	}
-
-	if (event.type == sf::Event::KeyPressed) {
-
-		if (event.key.code == sf::Keyboard::Escape)
-		window.close();
-
-	}
 	
 } 

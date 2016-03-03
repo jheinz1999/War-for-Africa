@@ -7,7 +7,9 @@
 #include "../MapPiece.hpp"
 #include "../Controller.hpp"
 
-void PlayingState::update() {
+void PlayingState::update(sf::Time dt) {
+
+handleInput();
 
 setSpriteColors();
 

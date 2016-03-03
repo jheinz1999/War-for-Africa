@@ -10,6 +10,7 @@ Game game;
 game.loadSettings("Config/keyboard.cfg");
 
 game.setNativeResolution(sf::Vector2f(1024, 768));
+game.setLogicRate(60);
 
 game.run("War for Africa", Game::getCurrentScreenSize(), 1);
 

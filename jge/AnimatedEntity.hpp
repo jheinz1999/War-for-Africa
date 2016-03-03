@@ -7,7 +7,7 @@
 
 namespace jge {
 
-	class AnimatedEntity: public Entity { // Inherits from Entity
+	class AnimatedEntity: public virtual Entity { // Inherits from Entity
 
 		public:
 

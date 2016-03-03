@@ -32,7 +32,7 @@ MapPiece.obj: src/MapPiece/*.cpp jge/Entity.hpp src/Controller.hpp
 	ld -r -o MapPiece.obj *.o
 	$(RM) *.o
 
-MenuState.obj: src/MenuState/*.cpp
+MenuState.obj: src/MenuState/*.cpp jge/FollowableEntity.hpp
 	g++ -c src/MenuState/*.cpp -std=c++11
 	ld -r -o MenuState.obj *.o
 	$(RM) *.o
@@ -47,10 +47,15 @@ Controller.obj: src/controller.cpp
 	$(CP) controller.o Controller.obj
 	$(RM) controller.o
 
-jge.obj: AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj
-	ld -r -o jge.obj AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj
+jge.obj: AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj
+	ld -r -o jge.obj AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj
 
-AnimatedEntity.obj: jge/AnimatedEntity/*.cpp jge/Entity.hpp
+FollowableEntity.obj: jge/FollowableEntity/*.cpp jge/Entity.hpp
+	g++ -c jge/FollowableEntity/*.cpp -std=c++11
+	ld -r -o FollowableEntity.obj *.o
+	$(RM) *.o
+
+AnimatedEntity.obj: jge/AnimatedEntity/*.cpp jge/Entity.hpp jge/AnimatedEntity.hpp
 	g++ -c jge/AnimatedEntity/*.cpp -std=c++11
 	ld -r -o AnimatedEntity.obj *.o
 	$(RM) *.o

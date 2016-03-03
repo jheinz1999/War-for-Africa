@@ -6,7 +6,7 @@
 	template <class Type>
 	Type EntityManager::getDerivedEntity(std::string id) {
 
-	return static_cast<Type>(getEntity(id));
+	return dynamic_cast<Type>(getEntity(id));
 
 	}
 

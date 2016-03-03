@@ -9,11 +9,11 @@ class MenuState : public jge::IState { // Menu state. Must inherit from IState i
 
 	public:
 
-	void update();
+	void update(sf::Time dt);
 	void draw(sf::RenderWindow &window);
 	void loadResources();
 	void processEvents(sf::RenderWindow &window, sf::Event event);
-	void handleInput(sf::Keyboard::Key key);
+	void handleInput();
 
 	private:
 

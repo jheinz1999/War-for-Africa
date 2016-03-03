@@ -25,9 +25,17 @@ namespace jge {
 
 	window.setView(view);
 
-	window.setFramerateLimit(60);
-
 	stateManager.getCurrentState()->loadResources();
+
+	sf::Clock gameClock, framerateClock;
+
+	sf::Time frameTime = sf::seconds(1.0 / logicFps);
+	sf::Time updateTime = sf::Time::Zero;
+
+	float fps;
+
+		if (maxFramerate > 0)
+		window.setFramerateLimit(maxFramerate);
 
 		while (window.isOpen()) {
 
@@ -35,18 +43,34 @@ namespace jge {
 		isRightClicked = 0;
 		isMouseDown = 0;
 		isRightDown = 0;
-		
-			while (window.pollEvent(event)) {
 
-				stateManager.getCurrentState()->processEvents(window, event);
-				gui.handleEvent(event);
+		updateTime += gameClock.restart();
+
+		fps += 1 / framerateClock.restart().asSeconds();
+
+		fps /= 2;
+
+		std::cout << fps << std::endl;
+
+			while (updateTime > frameTime) {
+
+			updateTime -= frameTime;
+		
+				while (window.pollEvent(event)) {
+
+					stateManager.getCurrentState()->processEvents(window, event);
+					gui.handleEvent(event);
+
+				}
+
+			stateManager.getCurrentState()->update(frameTime);
 
 			}
 
 		window.setView(view);
 
 		window.clear();
-		stateManager.getCurrentState()->update();
+
 		stateManager.getCurrentState()->draw(window);
 		gui.draw();
 		window.display();

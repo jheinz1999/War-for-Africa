@@ -5,15 +5,12 @@
 #include "../Game.hpp"
 #include "../PlayingState.hpp"
 
-void PlayingState::handleInput(sf::Keyboard::Key key) {
+void PlayingState::handleInput() {
 
-	if (key == Game::keyCode["EXIT"]) {
+	if (sf::Keyboard::isKeyPressed(Game::keyCode["EXIT"])) {
 
 	Game::window.close();
 
 	}
-
-	if (key == Game::keyCode["ATTACK"])
-	std::cout << "ATTACK\n";
 
 }

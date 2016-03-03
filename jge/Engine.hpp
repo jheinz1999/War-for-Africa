@@ -39,9 +39,17 @@ namespace jge {
 
 		sf::Vector2f getNativeResolution();
 
+		void setLogicRate(float rate) {logicFps = rate;}
+
+		void setMaxFramerate(float rate) {maxFramerate = rate;}
+
 		private:
 
 		sf::Vector2f screenSize;
+
+		float logicFps;
+
+		float maxFramerate;
 
 	};
 

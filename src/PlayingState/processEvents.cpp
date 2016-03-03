@@ -30,11 +30,5 @@ void PlayingState::processEvents(sf::RenderWindow &window, sf::Event event) {
 		Game::isRightClicked = 1;
 
 	}
-
-	if (event.type == sf::Event::KeyPressed) {
-
-	handleInput(event.key.code);
-
-	}
 	
 } 
