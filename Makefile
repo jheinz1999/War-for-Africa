@@ -47,8 +47,8 @@ Controller.obj: src/controller.cpp
 	$(CP) controller.o Controller.obj
 	$(RM) controller.o
 
-jge.obj: AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj
-	ld -r -o jge.obj AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj
+jge.obj: AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj TileMap.obj
+	ld -r -o jge.obj AnimatedEntity.obj Engine.obj Entity.obj EntityManager.obj StateManager.obj strToKeyCode.obj FollowableEntity.obj TileMap.obj
 
 FollowableEntity.obj: jge/FollowableEntity/*.cpp jge/Entity.hpp
 	g++ -c jge/FollowableEntity/*.cpp -std=c++11
@@ -83,6 +83,11 @@ StateManager.obj: jge/StateManager/*.cpp jge/IState.hpp
 strToKeyCode.obj: jge/strToKeyCode.cpp
 	g++ -c jge/strToKeyCode.cpp -std=c++11
 	$(CP) strToKeyCode.o strToKeyCode.obj
+	$(RM) *.o
+
+TileMap.obj: jge/TileMap/*.cpp jge/TileMap.hpp
+	g++ -c jge/TileMap/*.cpp -std=c++11
+	ld -r -o TileMap.obj *.o
 	$(RM) *.o
 
 clean:

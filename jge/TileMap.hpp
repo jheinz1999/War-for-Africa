@@ -6,10 +6,10 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+#include <iostream>
 
 /*
 
-Comment to me: Add an optimizer for resolution. Add variables for screen dimensions.
 Make draw = between pos - 2 and pos + screenSize / tWidth + 2.
 Make a move function that changes x/y start values.
 In draw, make sure that if x/y values are below 0 they are set to 0.
@@ -21,8 +21,6 @@ namespace jge {
 	class TileMap {
 
 		public:
-	
-		TileMap();
 	
 		~TileMap();
 	
@@ -46,6 +44,15 @@ namespace jge {
 	
 		void setCollisionTile(char id, int mode); // Sets a tile to collidable
 
+		void setPosition(float x, float y, float a, float b);
+		void setRenderSize(int x, int y);
+
+		sf::View* getView() { return &tilemapView; }
+
+		void setCenter(sf::Vector2f center);
+
+		void move(sf::Vector2f amount, sf::Time dt);
+
 		//void updatePos(sf::Vector2f pos); // Updates tilemap position
 
 		private:
@@ -67,6 +74,14 @@ namespace jge {
 		std::vector<int> collisionMode; // List of collision modes for each collision tile (intersecting w/ sprite or on beneath sprite)
 	
 		std::vector<bool> collisions; // Used to return multiple collision states, in case sprite is above one collision tile and intersecting with another.
+
+		float xStart, yStart;
+
+		int renderX, renderY;
+
+		sf::Vector2i currentTile;
+
+		sf::View tilemapView;
 
 	};
 

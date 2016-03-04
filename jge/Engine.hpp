@@ -18,6 +18,7 @@ namespace jge {
 
 		Engine();
 
+		static sf::View view;
 		static sf::RenderWindow window; // Window for game
 		static jge::StateManager stateManager; // manages game states
 		static jge::EntityManager entityManager; // manages entities
@@ -37,7 +38,7 @@ namespace jge {
 
 		void setNativeResolution(sf::Vector2f res);
 
-		sf::Vector2f getNativeResolution();
+		static sf::Vector2f getNativeResolution();
 
 		void setLogicRate(float rate) {logicFps = rate;}
 
@@ -45,7 +46,7 @@ namespace jge {
 
 		private:
 
-		sf::Vector2f screenSize;
+		static sf::Vector2f screenSize;
 
 		float logicFps;
 

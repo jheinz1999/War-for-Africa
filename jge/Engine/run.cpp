@@ -17,8 +17,6 @@ namespace jge {
 		else
 		window.create(res, name);
 
-	sf::View view;
-
 	view.setSize(getNativeResolution());
 	view.setViewport(sf::FloatRect(0, 0, 1, 1));
 	view.setCenter(getNativeResolution().x / 2, getNativeResolution().y / 2);
@@ -50,7 +48,7 @@ namespace jge {
 
 		fps /= 2;
 
-		std::cout << fps << std::endl;
+		//std::cout << fps << std::endl;
 
 			while (updateTime > frameTime) {
 
@@ -72,7 +70,9 @@ namespace jge {
 		window.clear();
 
 		stateManager.getCurrentState()->draw(window);
-		gui.draw();
+
+		gui.draw();	
+
 		window.display();
 
 		}

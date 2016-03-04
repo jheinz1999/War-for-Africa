@@ -8,9 +8,13 @@ namespace jge {
 
 	void TileMap::loadTexture(std::string t) {
 
+	std::cout << "Trying\n";
+
 	texture.loadFromFile(t);
 
 	tile.setTexture(texture);
+
+	std::cout << "Texture loaded\n";
 
 	}
 

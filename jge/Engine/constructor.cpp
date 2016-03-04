@@ -17,6 +17,8 @@ namespace jge {
 	std::map<std::string, sf::Keyboard::Key> Engine::keyCode;
 	tgui::Gui Engine::gui;
 	tgui::Theme::Ptr Engine::theme;
+	sf::View Engine::view;
+	sf::Vector2f Engine::screenSize;
 
 	Engine::Engine() {
 	

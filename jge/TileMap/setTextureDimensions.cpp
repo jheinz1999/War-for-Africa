@@ -1,5 +1,7 @@
 // setTextureDimensions.cpp - Contains functions for setting tile dimensions.
 
+#include <iostream>
+
 #include "../TileMap.hpp"
 
 namespace jge {
@@ -9,6 +11,8 @@ namespace jge {
 	tWidth = w;
 
 	tHeight = h;
+
+	std::cout << "Texture size set\n";
 
 	}
 

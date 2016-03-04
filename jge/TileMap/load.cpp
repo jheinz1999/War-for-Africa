@@ -10,6 +10,10 @@ namespace jge {
 
 	void TileMap::load(std::string n) {
 
+	std::cout << "Attempt\n";
+
+	currentTile = sf::Vector2i(width / 2, height / 2);
+
 	name = n;
 
 	std::ifstream i;
@@ -18,13 +22,21 @@ namespace jge {
 
 	i.open(maps.c_str());
 
+	std::cout << "Try\n";
+
 		if (i.fail())
 		std::cout << "FAILED\n";
 
+	std::cout << "Continue\n";
+
 	map = new char*[height];
+
+	std::cout << "Allocated\n";
 
 		for (int x = 0; x < height; ++x)
 		map[x] = new char[width];
+
+		std::cout << "Done\n";
 
 		for (int y = 0; y < height; y++) {
 	
