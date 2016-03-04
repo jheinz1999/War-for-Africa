@@ -28,3 +28,5 @@ This code has been tested to compile on Windows under MinGW, using g++ 4.8.1. Co
 #Contact
 
 - Jonathan Heinz - jonathan.heinz@aol.com
+
+Note: This project has been postponed until April 1, after the SFML Game Jam ends.
